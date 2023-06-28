@@ -1,0 +1,32 @@
+.wp-element-button, .wp-block-button__link {
+    background-color: var(--wp--preset--color--iwc-savor-blue);
+    border-radius: 20px;
+    border-width: 0;
+    color: var(--wp--preset--color--iwc-button-gray);
+    font-family: inherit;
+    font-size: calc( var(--wp--preset--font-size--normal) - 1px);
+    font-weight: 700;
+    line-height: inherit;
+    padding-top: 11px;
+    padding-right: 30px;
+    padding-bottom: 11px;
+    padding-left: 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.wp-element-button:visited, .wp-block-button__link:visited {
+    background-color: var(--wp--preset--color--iwc-savor-blue);
+}
+
+.wp-element-button:hover, .wp-block-button__link:hover {
+    background-color: var(--wp--preset--color--iwc-bright-purple);
+}
+
+.wp-element-button:focus, .wp-block-button__link:focus {
+    background-color: var(--wp--preset--color--iwc-bright-purple);
+}
+
+.wp-element-button:active, .wp-block-button__link:active {
+    background-color: var(--wp--preset--color--iwc-bright-purple);
+}

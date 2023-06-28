@@ -46,4 +46,7 @@ Helper classes with ability to override anything that comes before it
 /* WP Scrape Modifications
 WP styling scraped and elements modified for HS wrappers
 */
+{% include './wp_scrape_modifs/_buttons.css' %}
+{% include './wp_scrape_modifs/_containers.css' %}
 {% include './wp_scrape_modifs/_navs.css' %}
+{% include './wp_scrape_modifs/_typography.css' %}
