@@ -2,42 +2,53 @@
   templateType: global_partial
   label: Footer
 -->
-<footer class="footer">
-  {% dnd_area "footer"
-    label="Footer",
-    class="footer__container content-wrapper"
-  %}
-
-    {# Social follow and copyright #}
-
-    {% dnd_section %}
-      {% dnd_column %}
-        {% dnd_row %}
-          {% dnd_module path="../../modules/social-follow" %}
-            {% module_attribute "social_link" is_json=True %}
-              [
-                {"social_account": "facebook-f"},
-                {"social_account": "linkedin-in"},
-                {"social_account": "twitter"},
-                {"social_account": "instagram"}
-              ]
-            {% end_module_attribute %}
-          {% end_dnd_module %}
-        {% end_dnd_row %}
-        {% dnd_row
-          margin={
-            "top": 12,
-            "bottom": 12
-          }
-        %}
-          {% dnd_module
-            path="@hubspot/rich_text",
-            html='<div style="text-align: center; font-size: 0.7rem;"><span>© {{ year }} All rights reserved.</span></div>'
-          %}
-          {% end_dnd_module %}
-        {% end_dnd_row %}
-      {% end_dnd_column %}
-    {% end_dnd_section %}
-
-  {% end_dnd_area %}
-</footer>
+<nav class="footer is-layout-constrained has-global-padding alignfull">
+  <div class="wp-block-group menu-group" style="max-width:1156px;width:100%;">
+    <img class="footer-grape" src="https://idahowines.fahlgrendigital.com/content/themes/iwc/images/idaho-wine-color-grape@2x.webp" alt="grape">
+        
+    <ul id="menu-footer" class="menu-footer">
+      <li><a href="https://idahowines.fahlgrendigital.com/idaho-wines/">Idaho Wines</a></li>
+      <li><a href="https://idahowines.fahlgrendigital.com/visit/">Visit</a></li>
+      <li><a href="/events/">Events</a></li>
+      <li><a href="https://idahowines.fahlgrendigital.com/industry-resources/">Industry Resources</a></li>
+      <li><a href="#">Blog</a>
+        <ul>
+          <li><a href="#">Wine Enthusiast</a></li>
+        </ul>
+      </li>
+      <li><a href="https://idahowines.fahlgrendigital.com/who-we-are/">Who We Are</a></li>
+      <li class="stay-connected has-tiny-font-size">
+        <a href="#">STAY CONNECTED</a>
+        <p>Get more information about Idaho wines, upcoming events, special offers and other exclusive content form the Idaho Wine Commission.</p>
+      </li>
+    </ul>
+    <div class="footer-mid-wrap">
+      <ul id="menu-social" class="menu-social">
+        <li class="icon-fb"><a title="Facebook" target="_blank" href="https://www.facebook.com/idahowinecommission">FB</a></li>
+        <li class="icon-ig"><a title="Instagram" target="_blank" href="https://www.instagram.com/idahowines/">IG</a></li>
+        <li class="icon-yt"><a title="YouTube" target="_blank" href="https://www.youtube.com/channel/UCt03FzUcXh-qAOByZDREK8A/videos">YT</a></li>
+      </ul>
+      <div class="address has-tiny-font-size">
+        <b>IDAHO WINE HEADQUARTERS</b>
+        <p>
+          Idaho Grape Growers &amp; Wine
+          Producers Commission
+        </p>
+        <p>
+          821 W. State St. Boise, ID 83702<br>
+          Phone: <a href="tel:208.332.1538">208.332.1538</a>
+        </p>
+      </div>
+      <a href="/" class="footer-logo"><img src="https://idahowines.fahlgrendigital.com/content/themes/iwc/images/idaho-wine-color-logo@2x.webp" alt="Idaho Wine Commission"></a>
+    </div>
+  </div>
+  <div class="footer-bar alignfull">
+    <div class="wp-block-group" style="max-width:1216px;">
+      <p class="has-tiny-font-size" style="margin:0;">© 2023 Idaho Wines Commission</p>
+      <nav class="legal-menu-nav has-tiny-font-size">
+          <ul><li>legal menu goes here</li></ul>
+      </nav>
+      <img src="https://idahowines.fahlgrendigital.com/content/themes/iwc/images/logo-visit-idaho.svg" alt="Visit Idaho" class="footer-bar-image">
+    </div>
+  </div>
+</nav>

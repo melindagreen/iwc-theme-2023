@@ -26,3 +26,23 @@ body {
     padding: 0;
   }
 }
+
+.hs-blog-post-listing__post-image-wrapper {position:relative;}
+.hs-blog-post-listing__post-image-wrapper:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% - 18px);
+    min-height: unset;
+    height: 20px;
+    background-image: url(https://idahowines.fahlgrendigital.com/content/themes/iwc/images/header-curve-m.svg);
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+@media (min-width: 600px)
+.hs-blog-post-listing__post-image-wrapper:after {
+    background-image: url(https://idahowines.fahlgrendigital.com/content/themes/iwc/images/header-curve.svg);
+}

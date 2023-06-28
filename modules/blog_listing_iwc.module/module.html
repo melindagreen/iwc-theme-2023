@@ -607,43 +607,47 @@
 {################## Blog layout #####################}
 {####################################################}
 
-<section class="hs-blog-post-listing hs-blog-post-listing--{{ layout }}">
-  {% for content in contents %}
+<div id="content" class="page-content is-layout-constrained">
+  <div class="wp-block-columns are-vertically-aligned-center is-layout-flex wp-container-8" style="margin-bottom:var(--wp--preset--spacing--70)">
+    <section class="hs-blog-post-listing hs-blog-post-listing--{{ layout }}">
+      {% for content in contents %}
 
-    {# Blog listing article #}
+        {# Blog listing article #}
 
-    <article
-      class="hs-blog-post-listing__post hs-blog-post-listing__post--{{ layout }} {{ "hs-blog-post-listing__post--{{ columns }}" if has_columns }}"
-      {% if has_full_image and content.featured_image %}
-        style="background-image: url({{ content.featured_image }});"
-      {% endif %}
-      aria-label="{{ module.default_text.full_blog_post_summary_text }}"
-    >
+        <article
+          class="hs-blog-post-listing__post hs-blog-post-listing__post--{{ layout }} {{ "hs-blog-post-listing__post--{{ columns }}" if has_columns }}"
+          {% if has_full_image and content.featured_image %}
+            style="background-image: url({{ content.featured_image }});"
+          {% endif %}
+          aria-label="{{ module.default_text.full_blog_post_summary_text }}"
+        >
 
-      {# Adds a wrapper for an overlay if full image is enabled #}
+          {# Adds a wrapper for an overlay if full image is enabled #}
 
-      {% if has_full_image and content.featured_image %}
-        <div class="hs-blog-post-listing__post-inner-wrapper">
-      {% endif %}
+          {% if has_full_image and content.featured_image %}
+            <div class="hs-blog-post-listing__post-inner-wrapper">
+          {% endif %}
 
-        {# Post image #}
+            {# Post image #}
 
-        {% if not has_alternate_image or loop.index is not divisibleby 2 %}
-          {{ post_image("left") }}
-        {% elif has_alternate_image and loop.index is divisibleby 2 %}
-          {{ post_image("right") }}
-        {% endif %}
+            {% if not has_alternate_image or loop.index is not divisibleby 2 %}
+              {{ post_image("left") }}
+            {% elif has_alternate_image and loop.index is divisibleby 2 %}
+              {{ post_image("right") }}
+            {% endif %}
 
-        {# Article content #}
+            {# Article content #}
 
-        {{ post_content() }}
+            {{ post_content() }}
 
-      {# Adds a wrapper for an overlay if full image is enabled #}
+          {# Adds a wrapper for an overlay if full image is enabled #}
 
-      {% if has_full_image and content.featured_image %}
-        </div>
-      {% endif %}
+          {% if has_full_image and content.featured_image %}
+            </div>
+          {% endif %}
 
-    </article>
-  {% endfor %}
-</section>
+        </article>
+      {% endfor %}
+    </section>
+  </div>
+</div>
