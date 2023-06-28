@@ -49,8 +49,8 @@
   {% set show_description = true %}
 {% endif %}
 
-{% if module.display_for_each_list_item.index("button") >= 0 %}
-  {% set show_button = true %}
+{% if module.display_for_each_list_item.index("link") >= 0 %}
+  {% set show_link = true %}
 {% endif %}
 
 {# Alternate image #}
@@ -73,6 +73,10 @@
 {% require_css %}
   <style>
   {% scope_css %}
+
+    .hs-blog-post-listing--grid .hs-blog-post-listing__post-content {
+      {# {{ module.styles.post.padding.padding.css }}; #}
+    }
 
     {# Grid layout #}
 
@@ -161,7 +165,7 @@
 
     {# Side by side layout #}
 
-    {% if layout == "side-by-side" %}
+    {# {% if layout == "side-by-side" %}
       @media (min-width: 768px) {
         .hs-blog-post-listing__post--side-by-side {
           flex-direction: row;
@@ -224,12 +228,12 @@
           margin-right: 0;
         }
       }
-    {% endif %}
+    {% endif %} #}
 
     {# Post #}
 
     .hs-blog-post-listing__post {
-      {% if module.styles.post.background.color.color and not has_full_image %}
+      {# {% if module.styles.post.background.color.color and not has_full_image %}
         background-color: rgba({{ module.styles.post.background.color.color|convert_rgb }}, {{ module.styles.post.background.color.opacity / 100 }});
       {% endif %}
       {% if has_full_image %}
@@ -240,11 +244,11 @@
       {% if module.styles.post.corner.radius >= 0 %}
         border-radius: {{ module.styles.post.corner.radius ~ "px" }};
       {% endif %}
-      {{ module.styles.post.spacing.spacing.css }}
+      {{ module.styles.post.spacing.spacing.css }} #}
     }
 
     {% if has_full_image %}
-      .hs-blog-post-listing__post-inner-wrapper {
+      {# .hs-blog-post-listing__post-inner-wrapper {
         {% if module.styles.image.overlay.color.color %}
           background-color: rgba({{ module.styles.image.overlay.color.color|convert_rgb }}, {{ module.styles.image.overlay.color.opacity / 100 }});
         {% else %}
@@ -252,17 +256,19 @@
         {% endif %}
         display: flex;
         height: 100%;
-      }
+      } #}
     {% endif %}
 
     .hs-blog-post-listing__post-content {
-      {{ module.styles.post.spacing.post_content.css }}
+      {# position:relative; background:blue;
+      {{ module.styles.post.spacing.post_content.css }} #}
     }
 
     {# Post image #}
 
     {% if show_image and not has_full_image %}
-      .hs-blog-post-listing__post-image-wrapper {
+      {# .hs-blog-post-listing__post-image-wrapper {
+        position:relative;
         {{ module.styles.image.spacing.spacing.css }}
       }
 
@@ -274,6 +280,17 @@
           border-radius: {{ module.styles.image.corner.radius ~ "px" }};
         {% endif %}
       }
+      .hs-blog-post-listing__post-image-wrapper:after {
+        content:'';
+        position:absolute;
+        left:calc((-1000px + 100%) / 2 );
+        bottom:-940px;
+        width:1000px;
+        height:1000px;
+        background:white;
+        border-top-right-radius:100%;
+        border-top-left-radius:100%;
+      } #}
     {% endif %}
 
     {# Title #}
@@ -281,7 +298,7 @@
     {% if show_title %}
       .hs-blog-post-listing__post-title,
       .hs-blog-post-listing__post-title-link {
-        {% if module.styles.title.text.font.color %}
+        {# {% if module.styles.title.text.font.color %}
           color: {{ module.styles.title.text.font.color }};
         {% endif %}
         {% if module.styles.title.text.font.size %}
@@ -290,17 +307,17 @@
         {% if module.styles.title.text.font.style %}
           {{ module.styles.title.text.font.style }};
         {% endif %}
-        {{ module.styles.title.spacing.spacing.css }}
+        {{ module.styles.title.spacing.spacing.css }} #}
       }
 
       .hs-blog-post-listing__post-title-link:hover,
       .hs-blog-post-listing__post-title-link:focus {
-        {% if module.styles.title.hover.text.font.color %}
+        {# {% if module.styles.title.hover.text.font.color %}
           color: {{ module.styles.title.hover.text.font.color }};
         {% endif %}
         {% if module.styles.title.hover.text.font.style %}
           {{ module.styles.title.hover.text.font.style }};
-        {% endif %}
+        {% endif %} #}
       }
     {% endif %}
 
@@ -308,17 +325,17 @@
 
     {% if show_author_image or show_author_name %}
       .hs-blog-post-listing__post-author {
-        {{ module.styles.author.spacing.spacing.css }}
+        {# {{ module.styles.author.spacing.spacing.css }} #}
       }
 
       {% if show_author_image and module.styles.author.image.corner.radius >= 0 %}
-        .hs-blog-post-listing__post-author-image {
-          border-radius: {{ module.styles.author.image.corner.radius ~ "px" }};
-        }
+        {# .hs-blog-post-listing__post-author-image { #}
+          {# border-radius: {{ module.styles.author.image.corner.radius ~ "px" }}; #}
+        {# } #}
       {% endif %}
 
       {% if show_author_name %}
-        .hs-blog-post-listing__post-author-name {
+        {# .hs-blog-post-listing__post-author-name {
           {% if module.styles.author.text.font.color %}
             color: {{ module.styles.author.text.font.color }};
           {% endif %}
@@ -338,14 +355,14 @@
           {% if module.styles.author.hover.text.font.style %}
             {{ module.styles.author.hover.text.font.style }};
           {% endif %}
-        }
+        } #}
       {% endif %}
     {% endif %}
 
     {# Tags #}
 
     {% if show_tags %}
-      .hs-blog-post-listing__post-tag {
+      {# .hs-blog-post-listing__post-tag {
         {% if module.styles.tags.background.color.color %}
           background-color: rgba({{ module.styles.tags.background.color.color|convert_rgb }}, {{ module.styles.tags.background.color.opacity / 100 }});
         {% endif %}
@@ -383,13 +400,13 @@
         .hs-blog-post-listing__post-tag:not(:last-child) {
           margin-right: {{ module.styles.tags.spacing.space_between_tags ~ "px" }};
         }
-      {% endif %}
+      {% endif %} #}
     {% endif %}
 
     {# Publish date #}
 
     {% if show_publish_date %}
-      .hs-blog-post-listing__post-timestamp {
+      {# .hs-blog-post-listing__post-timestamp {
         {% if module.styles.publish_date.text.font.color %}
           color: {{ module.styles.publish_date.text.font.color }};
         {% endif %}
@@ -400,13 +417,13 @@
           {{ module.styles.publish_date.text.font.style }};
         {% endif %}
         {{ module.styles.publish_date.spacing.spacing.css }}
-      }
+      } #}
     {% endif %}
 
     {# Description #}
 
     {% if show_description %}
-      .hs-blog-post-listing__post-description {
+      {# .hs-blog-post-listing__post-description {
         {% if module.styles.description.text.font.color %}
           color: {{ module.styles.description.text.font.color }};
         {% endif %}
@@ -417,72 +434,72 @@
           {{ module.styles.description.text.font.style }};
         {% endif %}
         {{ module.styles.description.spacing.spacing.css }}
-      }
+      } #}
     {% endif %}
 
     {# Button #}
 
-    {% if show_button %}
+    {% if show_link %}
 
-      {# Button wrapper #}
+      {# Link wrapper #}
 
-      {% if module.styles.button.alignment.alignment %}
-        .hs-blog-post-listing__post-button-wrapper {
-          text-align: {{ module.styles.button.alignment.alignment.horizontal_align }};
-        }
-      {% endif %}
+      {# {% if module.styles.link.alignment.alignment %} #}
+        {# .hs-blog-post-listing__post-link-wrapper {
+          text-align: {{ module.styles.link.alignment.alignment.horizontal_align }};
+        } #}
+      {# {% endif %} #}
 
       {# Button #}
 
-      .hs-blog-post-listing__post-button {
-        {% if module.styles.button.background.color.color %}
-          background-color: rgba({{ module.styles.button.background.color.color|convert_rgb }}, {{ module.styles.button.background.color.opacity / 100 }});
+      {# .hs-blog-post-listing__post-link {
+        {% if module.styles.link.background.color.color %}
+          background-color: rgba({{ module.styles.link.background.color.color|convert_rgb }}, {{ module.styles.link.background.color.opacity / 100 }});
         {% endif %}
-        {{ module.styles.button.border.border.css }}
-        {% if module.styles.button.corner.radius >= 0 %}
-          border-radius: {{ module.styles.button.corner.radius ~ "px" }};
+        {{ module.styles.link.border.border.css }}
+        {% if module.styles.link.corner.radius >= 0 %}
+          border-radius: {{ module.styles.link.corner.radius ~ "px" }};
         {% endif %}
-        {% if module.styles.button.text.font.color %}
-          color: {{ module.styles.button.text.font.color }};
+        {% if module.styles.link.text.font.color %}
+          color: {{ module.styles.link.text.font.color }};
         {% endif %}
-        {% if module.styles.button.text.font.size %}
-          font-size: {{ module.styles.button.text.font.size ~ module.styles.button.text.font.size_unit }};
+        {% if module.styles.link.text.font.size %}
+          font-size: {{ module.styles.link.text.font.size ~ module.styles.link.text.font.size_unit }};
         {% endif %}
-        {% if module.styles.button.text.font.style %}
-          {{ module.styles.button.text.font.style }};
+        {% if module.styles.link.text.font.style %}
+          {{ module.styles.link.text.font.style }};
         {% endif %}
-        {{ module.styles.button.spacing.spacing.css }}
+        {{ module.styles.link.spacing.spacing.css }}
+      } #}
+
+      {# .hs-blog-post-listing__post-link:hover,
+      .hs-blog-post-listing__post-link:focus {
+        {% if module.styles.link.hover.background.color.color %}
+          background-color: rgba({{ module.styles.link.hover.background.color.color|convert_rgb }}, {{ module.styles.link.hover.background.color.opacity / 100 }});
+        {% endif %}
+        {{ module.styles.link.hover.border.border.css }}
+        {% if module.styles.link.hover.text.font.color %}
+          color: {{ module.styles.link.hover.text.font.color }};
+        {% endif %}
+        {% if module.styles.link.hover.text.font.style %}
+          {{ module.styles.link.hover.text.font.style }};
+        {% endif %}
       }
 
-      .hs-blog-post-listing__post-button:hover,
-      .hs-blog-post-listing__post-button:focus {
-        {% if module.styles.button.hover.background.color.color %}
-          background-color: rgba({{ module.styles.button.hover.background.color.color|convert_rgb }}, {{ module.styles.button.hover.background.color.opacity / 100 }});
+      .hs-blog-post-listing__post-link:active {
+        {% if module.styles.link.hover.background.color.color %}
+          background-color: rgba({{ color_variant(module.styles.link.hover.background.color.color, 80)|convert_rgb }}, {{ module.styles.link.hover.background.color.opacity / 100 }});
         {% endif %}
-        {{ module.styles.button.hover.border.border.css }}
-        {% if module.styles.button.hover.text.font.color %}
-          color: {{ module.styles.button.hover.text.font.color }};
+        {{ module.styles.link.hover.border.border.css }}
+        {% if module.styles.link.hover.border.border.top.color %}
+          border-color: {{ color_variant(module.styles.link.hover.border.border.top.color, 80) }};
         {% endif %}
-        {% if module.styles.button.hover.text.font.style %}
-          {{ module.styles.button.hover.text.font.style }};
+        {% if module.styles.link.hover.text.font.color %}
+          color: {{ module.styles.link.hover.text.font.color }};
         {% endif %}
-      }
-
-      .hs-blog-post-listing__post-button:active {
-        {% if module.styles.button.hover.background.color.color %}
-          background-color: rgba({{ color_variant(module.styles.button.hover.background.color.color, 80)|convert_rgb }}, {{ module.styles.button.hover.background.color.opacity / 100 }});
+        {% if module.styles.link.hover.text.font.style %}
+          {{ module.styles.link.hover.text.font.style }};
         {% endif %}
-        {{ module.styles.button.hover.border.border.css }}
-        {% if module.styles.button.hover.border.border.top.color %}
-          border-color: {{ color_variant(module.styles.button.hover.border.border.top.color, 80) }};
-        {% endif %}
-        {% if module.styles.button.hover.text.font.color %}
-          color: {{ module.styles.button.hover.text.font.color }};
-        {% endif %}
-        {% if module.styles.button.hover.text.font.style %}
-          {{ module.styles.button.hover.text.font.style }};
-        {% endif %}
-      }
+      } #}
 
     {% endif %}
 
@@ -561,15 +578,15 @@
   {% endif %}
 {% endmacro %}
 
-{% macro post_button() %}
-  {% if show_button %}
-    <div class="hs-blog-post-listing__post-button-wrapper">
+{% macro post_link() %}
+  {% if show_link %}
+    <div class="hs-blog-post-listing__post-link-wrapper">
       <a
-        class="hs-blog-post-listing__post-button"
+        class="hs-blog-post-listing__post-link"
         href="{{ content.absolute_url }}"
         aria-label="{{ module.default_text.read_full_post_aria_label }}"
       >
-        {{ module.button_text }}
+        {{ module.link_text }}
       </a>
     </div>
   {% endif %}
@@ -582,7 +599,7 @@
     {{ post_tags() }}
     {{ post_date() }}
     {{ post_description() }}
-    {{ post_button() }}
+    {{ post_link() }}
   </div>
 {% endmacro %}
 

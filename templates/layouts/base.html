@@ -9,16 +9,23 @@
     {% if page_meta.html_title or pageTitle %}<title>{{ page_meta.html_title or pageTitle }}</title>{% endif %}
     {% if brand_settings.primaryFavicon.src %}<link rel="shortcut icon" href="{{ brand_settings.primaryFavicon.src }}" />{% endif %}
     <meta name="description" content="{{ page_meta.meta_description }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     {{ require_css(get_asset_url("../../css/main.css")) }}
     {# This is intended to be used if a template requires template specific style sheets #}
     {% if template_css %}
       {{ require_css(get_asset_url(template_css)) }}
     {% endif %}
-    {{ require_css(get_asset_url("../../css/theme-overrides.css")) }}
-    {# To see a full list of what is included via standard_header_includes please reference this article: https://developers.hubspot.com/docs/cms/hubl/variables#required-page-template-variables #}
+    {{ require_css('https://idahowines.fahlgrendigital.com/wp/wp-includes/css/dist/block-library/style.min.css') }}
+    {{ require_js('https://idahowines.fahlgrendigital.com/wp/wp-includes/js/jquery/jquery.min.js') }}
+    {{ require_js('https://idahowines.fahlgrendigital.com/wp/wp-includes/js/jquery/jquery-migrate.min.js') }}
+    {{ require_js('https://idahowines.fahlgrendigital.com/content/themes/iwc/app.js') }}
+
+
     {{ standard_header_includes }}
   </head>
   <body>
+    <noscript style="display:block;text-align:center;color:red;">The page requires JavaScript to be enabled.</noscript>
     <div class="body-wrapper {{ builtin_body_classes }}">
       {% block header %}
         {% global_partial path="../partials/header.html" %}
@@ -35,6 +42,7 @@
         {% global_partial path="../partials/footer.html" %}
       {% endblock footer %}
     </div>
+    {{ require_css('https://idahowines.fahlgrendigital.com/content/themes/iwc/style.css') }}
     {{ require_js(get_asset_url("../../js/main.js")) }}
     {# To see a full list of what is included via standard_footer_includes please reference this article: https://developers.hubspot.com/docs/cms/hubl/variables#required-page-template-variables #}
     {{ standard_footer_includes }}

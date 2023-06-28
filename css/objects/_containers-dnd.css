@@ -1,3 +1,7 @@
+body {
+  background-color: var(--wp--preset--color--transparent);
+}
+
 .content-wrapper {
   margin: 0 auto;
   padding: 0 1rem;

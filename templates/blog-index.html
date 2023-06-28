@@ -8,48 +8,33 @@
 {% extends "./layouts/base.html" %}
 
 {% block body %}
+  <div id="content" class="page-content is-layout-constrained">
+
+    {# Hero banner #}
+    <div class="wp-block-cover alignwide has-custom-content-position is-position-bottom-center is-hero-section" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--70);min-height:700px">
+      <span aria-hidden="true" class="wp-block-cover__background has-background-dim-100 has-background-dim wp-block-cover__gradient-background has-background-gradient has-homepage-hero-gradient-gradient-background"></span>
+      <img decoding="async" width="1920" height="1100" class="wp-block-cover__image-background" alt="" src="https://idahowines.fahlgrendigital.com/content/uploads/2023/06/idaho-wine-home-hero.jpg" style="object-position:51% 0%" data-object-fit="cover" data-object-position="51% 0%" srcset="https://idahowines.fahlgrendigital.com/content/uploads/2023/06/idaho-wine-home-hero.jpg 1920w, https://idahowines.fahlgrendigital.com/content/uploads/2023/06/idaho-wine-home-hero-1440x825.jpg 1440w" sizes="(max-width: 1920px) 100vw, 1920px"> 
+        <div class="wp-block-cover__inner-container">
+          <div class="wp-block-group has-global-padding is-layout-constrained wp-container-2" style="margin-bottom:var(--wp--preset--spacing--70)">
+          <h1 class="wp-block-heading alignwide has-text-align-center has-white-color has-text-color has-h-home-hero-font-size">Here We Grow</h1>
+          <p class="has-text-align-center has-white-color has-text-color has-medium-large-font-size" style="margin-top:0">Some people are surprised that world-class wine comes from Idaho. Here’s why they shouldn’t be.</p>
+          <div class="wp-block-buttons is-content-justification-center is-layout-flex wp-container-1">
+            <div class="wp-block-button">
+              <a class="wp-block-button__link has-text-align-center wp-element-button">LEARN MORE</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+
+
 {% dnd_area "dnd_area"
   label="Main section",
   class="body-container body-container--blog-index"
 %}
-
-  {# Hero banner #}
-
-  {% dnd_section
-    background_color="#f8fafc",
-    max_width=600,
-    padding={
-      "default": {
-        "top": 80,
-        "right": 0,
-        "bottom": 80,
-        "left": 0
-      },
-      "mobile": {
-        "top": 80,
-        "right": 20,
-        "bottom": 80,
-        "left": 20
-      }
-    }
-  %}
-    {% dnd_column %}
-      {% dnd_row %}
-        {% dnd_module
-          path="@hubspot/rich_text",
-          html='<div style="text-align: center;"><h1>Blog</h1><p>Use this space to tell everyone about what you have to offer.</p></div>'
-        %}
-        {% end_dnd_module %}
-      {% end_dnd_row %}
-      {% dnd_row %}
-        {% dnd_module
-          path="@hubspot/blog_subscribe",
-          title=""
-        %}
-        {% end_dnd_module %}
-      {% end_dnd_row %}
-    {% end_dnd_column %}
-  {% end_dnd_section %}
 
   {# Blog listings and pagination #}
 

@@ -1,14 +1,16 @@
-body {
-  line-height: 1.4;
-  overflow-wrap: break-word;
-}
 
-html[lang^="ja"] body,
-html[lang^="zh"] body,
-html[lang^="ko"] body {
-  line-break: strict;
-  overflow-wrap: normal;
-  word-break: break-all;
+@font-face{font-family:Raleway;font-style:normal;font-weight:400;font-display:fallback;src:url('https://resources.idahowines.org/hubfs/IWC_2023_Theme_Assets/Fonts/Raleway-Regular.woff2') format('woff2');}
+@font-face{font-family:Raleway;font-style:normal;font-weight:500;font-display:fallback;src:url('https://resources.idahowines.org/hubfs/IWC_2023_Theme_Assets/Fonts/Raleway-Medium.woff2') format('woff2');}
+@font-face{font-family:Raleway;font-style:normal;font-weight:700;font-display:fallback;src:url('https://resources.idahowines.org/hubfs/IWC_2023_Theme_Assets/Fonts/Raleway-Bold.woff2') format('woff2');}
+@font-face{font-family:Raleway;font-style:normal;font-weight:800;font-display:fallback;src:url('https://resources.idahowines.org/hubfs/IWC_2023_Theme_Assets/Fonts/Raleway-ExtraBold.woff2') format('woff2');}
+@font-face{font-family:dity;font-style:normal;font-weight:400;font-display:fallback;src:url('https://resources.idahowines.org/hubfs/IWC_2023_Theme_Assets/Fonts/dity.woff2') format('woff2');}
+
+body {
+  color: var(--wp--preset--color--iwc-text);
+  font-family: var(--wp--preset--font-family--raleway);
+  font-size: var(--wp--preset--font-size--body-copy);
+  line-height: var(--wp--custom--line-height--body);
+  margin: 0;
 }
 
 /* Paragraphs */

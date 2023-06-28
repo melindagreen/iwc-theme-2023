@@ -2,84 +2,61 @@
   templateType: global_partial
   label: Website header
 -->
-<header class="header" {% if is_listing_view %} class="init-xpt"{% endif %}>
+{# <header class="header" {% if is_listing_view %} class="init-xpt"{% endif %}> #}
 
   {# The link below is used for a navigation skipper which allows users navigating the site with their keyboard to skip over the site navigation. More information on the navigation skipper can be found here: https://github.com/HubSpot/cms-theme-boilerplate/wiki/Accessibility #}
 
-  <a href="#main-content" class="header__skip">Skip to content</a>
+  {# <a href="#main-content" class="header__skip">Skip to content</a> #}
 
-  {# Top header drag and drop area #}
-
-  {# dnd_area "header-top"
-    label="Top header",
-    class="content-wrapper"
-  #}
-  {# end_dnd_area #}
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
   {# Main header #}
+  <nav class="navbar-primary">
+    <div class="navbar-container">
 
-  <div class="header__container content-wrapper">
+      <a href="#" class="navbar-search-button" id="mobile-search"><img src="https://idahowines.fahlgrendigital.com/content/themes/iwc/images/icon-search.svg" alt="search"></a>
 
-    {# Header logo column #}
-
-    <div class="header__logo header__logo--main">
-      {% module "site_logo"
-        path="@hubspot/logo"
-        img={
-          "loading": "eager"
-        }
-      %}
-    </div>
-
-    {# Header navigation column #}
-
-    <div class="header__column">
-
-      {# Header navigation row one #}
-
-      <!-- <div class="header__row-1">
-        <div class="header__search header--element"> -->
-          {# {% module "site_search"
-            path="@hubspot/search_input",
-            label="Search",
-            field_label="Search",
-            placeholder=""
-          %} #}
-        <!-- </div>
-      </div> -->
-
-      {# Header navigation row two #}
-
-      <div class="header__row-2">
-        <div class="header--toggle header__navigation--toggle"></div>
-        {# if content.translated_content|length or is_listing_view and group.translations #}
-          {# <div class="header--toggle header__language-switcher--toggle"></div> #}
-        {# endif #}
-        <!-- <div class="header--toggle header__search--toggle"></div> -->
-        <div class="header__close--toggle"></div>
-        <div class="header__navigation header--element">
-          <div>
-            {% menu "navigation-utility" id=6836161889, site_map_name='Utility', overrideable=False, root_type='site_root', flyouts='false', max_levels='1', flow='horizontal', label='Utility Menu' %}
-          </div>
-          <div>
-            {% module "navigation-primary"
-              path="../../modules/menu",
-              label="Primary navigation"
-            %}
-          </div>
-        </div>
+      <div class="navbar-logo-container">
+        <a href="https://idahowines.fahlgrendigital.com"><img src="https://idahowines.fahlgrendigital.com/content/themes/iwc/images/idaho-wine-color-logo@2x.webp" alt="Idaho Wine Commission"></a>
       </div>
 
+      <div id="mobile-menu">
+        <ul id="menu-action" class="menu-action">
+          <li class=""><a href="https://idahowines.fahlgrendigital.com/media/">Media</a></li>
+          <li class=""><a href="https://idahowines.fahlgrendigital.com/visitors-guide/">Visitors Guide</a></li>
+          <li class=""><a href="https://idahowines.fahlgrendigital.com/contact/">Contact</a></li>
+          <li class=""><a href="https://idahowines.fahlgrendigital.com/subscribe/">Subscribe</a></li>
+          <li>
+            <ul id="menu-social" class="menu-social">
+              <li class="icon-fb"><a title="Facebook" target="_blank" href="https://www.facebook.com/idahowinecommission">FB</a></li>
+              <li class="icon-ig"><a title="Instagram" target="_blank" href="https://www.instagram.com/idahowines/">IG</a></li>
+              <li class="icon-yt"><a title="YouTube" target="_blank" href="https://www.youtube.com/channel/UCt03FzUcXh-qAOByZDREK8A/videos">YT</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <ul id="menu-primary-menu" class="menu-primary">
+          <li><a href="https://idahowines.fahlgrendigital.com/idaho-wines/">Idaho Wines</a></li>
+          <li><a href="https://idahowines.fahlgrendigital.com/visit/">Visit</a></li>
+          <li><a href="/events/">Events</a></li>
+          <li><a href="https://idahowines.fahlgrendigital.com/industry-resources/">Industry Resources</a></li>
+          <li><span class="toggle"></span><a href="#">Blog</a>
+            <ul style="display: none;">
+              <li><a href="#">Wine Enthusiast</a></li>
+            </ul>
+          </li>
+          <li><a href="https://idahowines.fahlgrendigital.com/who-we-are/">Who We Are</a></li>
+        </ul>
+      </div>
+
+      <button id="hamburger" type="button" class="collapsed" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="screen-reader-text">Open main menu</span>
+          <span class="lines"></span>
+      </button>
+
     </div>
 
-  </div>
+    <div class="b-line"></div>
+  </nav>
 
-  {# Bottom header drag and drop area #}
-
-  {# dnd_area "header-bottom"
-    label="Bottom header",
-    class="content-wrapper"
-  #}
-  {# end_dnd_area #}
-
-</header>
+{# </header> #}

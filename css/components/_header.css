@@ -54,7 +54,7 @@ header.init-xpt {background:transparent; }
 
 /* Navigation skipper */
 
-.header__skip {
+/* .header__skip {
   height: 1px;
   left: -1000px;
   overflow: hidden;
@@ -72,7 +72,7 @@ header.init-xpt {background:transparent; }
   overflow: visible;
   top: 0;
   width: auto;
-}
+} */
 
 /* Logo */
 

@@ -1,0 +1,8 @@
+nav ul li a:where(:not(.wp-element-button)) {
+    border-color: transparent;
+    border-width: 0 0 2px 0;
+    border-style: solid;
+    color: var(--wp--preset--color--iwc-grape);
+    font-weight: 700;
+    text-decoration: none;
+}
