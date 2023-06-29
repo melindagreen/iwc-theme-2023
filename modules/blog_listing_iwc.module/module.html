@@ -16,7 +16,9 @@
 
 {% if layout == "grid" %}
   {% set has_columns = true %}
+  {% set has_feature_columns = true %}
   {% set columns = module.columns %}
+  {% set feature_columns = module.feature_columns %}
 {% endif %}
 
 {# Content options #}
@@ -72,7 +74,6 @@
 
 {% require_css %}
   <style>
-  {% scope_css %}
 
     .hs-blog-post-listing--grid .hs-blog-post-listing__post-content {
       {# {{ module.styles.post.padding.padding.css }}; #}
@@ -81,86 +82,26 @@
     {# Grid layout #}
 
     {% if has_columns %}
-      {% if columns == 2 %}
+      @media(min-width:768px) {
         .hs-blog-post-listing--grid {
+          gap:2rem;
           justify-content: space-between;
         }
-
-        @media (min-width: 767px) {
-          .hs-blog-post-listing__post--2 {
-            {% if module.styles.post.spacing.space_between_posts %}
-              width: calc(50% - {{ module.styles.post.spacing.space_between_posts / 2 ~ "px" }});
-            {% else %}
-              width: calc(50% - 0.5rem);
-            {% endif %}
-          }
+        .hs-blog-post-listing__post--2, .hs-blog-post-listing__post--3, .hs-blog-post-listing__post--4 {
+          width:calc(50% - 1rem);
         }
-      {% elif columns == 3 %}
-        @media (min-width: 767px) and (max-width: 1000px) {
-          .hs-blog-post-listing--grid {
-            justify-content: space-between;
-          }
-
-          .hs-blog-post-listing__post--3 {
-            {% if module.styles.post.spacing.space_between_posts %}
-              width: calc(50% - {{ module.styles.post.spacing.space_between_posts / 2 ~ "px" }});
-            {% else %}
-              width: calc(50% - 0.5rem);
-            {% endif %}
-          }
+      }
+      @media(min-width:840px) {
+        .hs-blog-post-listing__post--3, .hs-blog-post-listing__post--4 {
+          width:calc(33% - 1.25rem);
         }
-
-        @media (min-width: 1000px) {
-          .hs-blog-post-listing__post--3 {
-            {% if module.styles.post.spacing.space_between_posts %}
-              width: calc(33.3% - {{ module.styles.post.spacing.space_between_posts * 2 / 3 ~ "px" }});
-            {% else %}
-              width: calc(33.3% - 0.66rem);
-            {% endif %}
-          }
-          .hs-blog-post-listing__post--3:nth-child(3n + 1),
-          .hs-blog-post-listing__post--3:nth-child(3n + 2) {
-            {% if module.styles.post.spacing.space_between_posts %}
-              margin-right: {{ module.styles.post.spacing.space_between_posts ~ "px" }};
-            {% else %}
-              margin-right: 1rem;
-            {% endif %}
-          }
+      }
+      @media(min-width:960px) {
+        .hs-blog-post-listing__post--4 {
+          width:calc(25% - 1.5rem);
         }
-      {% elif columns == 4 %}
-        @media (min-width: 767px) and (max-width: 1000px) {
-          .hs-blog-post-listing--grid {
-            justify-content: space-between;
-          }
-
-          .hs-blog-post-listing__post--4 {
-            {% if module.styles.post.spacing.space_between_posts %}
-              width: calc(50% - {{ module.styles.post.spacing.space_between_posts / 2 ~ "px" }});
-            {% else %}
-              width: calc(50% - 0.5rem);
-            {% endif %}
-          }
-        }
-
-        @media (min-width: 1000px) {
-          .hs-blog-post-listing__post--4 {
-            {% if module.styles.post.spacing.space_between_posts %}
-              width: calc(25% - {{ module.styles.post.spacing.space_between_posts * 3 / 4 ~ "px" }});
-            {% else %}
-              width: calc(25% - 0.75rem);
-            {% endif %}
-          }
-          .hs-blog-post-listing__post--4:nth-child(4n + 1),
-          .hs-blog-post-listing__post--4:nth-child(4n + 2),
-          .hs-blog-post-listing__post--4:nth-child(4n + 3) {
-            {% if module.styles.post.spacing.space_between_posts %}
-              margin-right: {{ module.styles.post.spacing.space_between_posts ~ "px" }};
-            {% else %}
-              margin-right: 1rem;
-            {% endif %}
-          }
-        }
-      {% endif %}
+      }
+      
     {% endif %}
 
     {# Side by side layout #}
@@ -503,7 +444,6 @@
 
     {% endif %}
 
-  {% end_scope_css %}
   </style>
 {% end_require_css %}
 
@@ -607,28 +547,22 @@
 {################## Blog layout #####################}
 {####################################################}
 
-<div id="content" class="page-content is-layout-constrained">
-  <div class="wp-block-columns are-vertically-aligned-center is-layout-flex wp-container-8" style="margin-bottom:var(--wp--preset--spacing--70)">
+<div id="featureContent" class="is-layout-flow">
+  <div class="wp-block-columns are-vertically-aligned-center is-layout-flex wp-container-8 has-global-padding" style="margin-bottom:var(--wp--preset--spacing--70)">
     <section class="hs-blog-post-listing hs-blog-post-listing--{{ layout }}">
       {% for content in contents %}
-
-        {# Blog listing article #}
-
+      {% if loop.index <3 %}
         <article
-          class="hs-blog-post-listing__post hs-blog-post-listing__post--{{ layout }} {{ "hs-blog-post-listing__post--{{ columns }}" if has_columns }}"
+          class="hs-blog-post-listing__post hs-blog-post-listing__post--{{ layout }} {{ "hs-blog-post-listing__post--{{ feature_columns }}" if has_feature_columns }}"
           {% if has_full_image and content.featured_image %}
             style="background-image: url({{ content.featured_image }});"
           {% endif %}
           aria-label="{{ module.default_text.full_blog_post_summary_text }}"
-        >
-
-          {# Adds a wrapper for an overlay if full image is enabled #}
+          >
 
           {% if has_full_image and content.featured_image %}
             <div class="hs-blog-post-listing__post-inner-wrapper">
           {% endif %}
-
-            {# Post image #}
 
             {% if not has_alternate_image or loop.index is not divisibleby 2 %}
               {{ post_image("left") }}
@@ -636,17 +570,56 @@
               {{ post_image("right") }}
             {% endif %}
 
-            {# Article content #}
-
             {{ post_content() }}
-
-          {# Adds a wrapper for an overlay if full image is enabled #}
 
           {% if has_full_image and content.featured_image %}
             </div>
           {% endif %}
 
         </article>
+
+      {% endif %}
+      {% endfor %}
+    </section>
+  </div>
+</div>
+
+<div class="alignwide has-white-color has-iwc-grape-background-color has-text-color has-background has-global-padding is-layout-flow">
+HELLO
+</div>
+
+<div id="content" class="is-layout-flow">
+  <div class="wp-block-columns are-vertically-aligned-center is-layout-flex wp-container-8 has-global-padding" style="margin-bottom:var(--wp--preset--spacing--70)">
+    <section class="hs-blog-post-listing hs-blog-post-listing--{{ layout }}">
+      {% for content in contents %}
+      {% if loop.index >=3 %}
+        <article
+          class="hs-blog-post-listing__post hs-blog-post-listing__post--{{ layout }} {{ "hs-blog-post-listing__post--{{ columns }}" if has_columns }}"
+          {% if has_full_image and content.featured_image %}
+            style="background-image: url({{ content.featured_image }});"
+          {% endif %}
+          aria-label="{{ module.default_text.full_blog_post_summary_text }}"
+          >
+
+          {% if has_full_image and content.featured_image %}
+            <div class="hs-blog-post-listing__post-inner-wrapper">
+          {% endif %}
+
+            {% if not has_alternate_image or loop.index is not divisibleby 2 %}
+              {{ post_image("left") }}
+            {% elif has_alternate_image and loop.index is divisibleby 2 %}
+              {{ post_image("right") }}
+            {% endif %}
+
+            {{ post_content() }}
+
+          {% if has_full_image and content.featured_image %}
+            </div>
+          {% endif %}
+
+        </article>
+
+      {% endif %}
       {% endfor %}
     </section>
   </div>

@@ -26,38 +26,17 @@
         </div>
       </div> -->
     </div>
-    <div>
+    <div class="has-global-padding">
       <h1>The Latest News from Idaho Wine Commission</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut erat velit. Nullam mattis felis ut neque malesuada pulvinar. Duis id augue rutrum, facilisis augue sed, cursus ipsum. Nunc in volutpat ipsum. Morbi egestas lacus at augue ullamcorper, sed volutpat nisl ultricies.</p>
     </div>
+    
+    {% module "blog_posts" path="/Custom/Idaho Wines/Themes/IWC_2023/modules/blog_listing_iwc.module", no_wrapper=true %}
+    {% module "blog_posts_pagination" path="@hubspot/pagination", no_wrapper=true %}
 
   </div>
+</div>
 
-
-
-{% dnd_area "dnd_area"
-  label="Main section",
-  class="body-container body-container--blog-index"
-%}
-
-  {# Blog listings and pagination #}
-
-  {% dnd_section
-    vertical_alignment="TOP"
-  %}
-    {% dnd_column %}
-      {% dnd_row %}
-        {% dnd_module path="../../modules/blog_listing_iwc" %}
-        {% end_dnd_module %}
-      {% end_dnd_row %}
-      {% dnd_row %}
-        {% dnd_module path="@hubspot/pagination" %}
-        {% end_dnd_module %}
-      {% end_dnd_row %}
-    {% end_dnd_column %}
-  {% end_dnd_section %}
-
-{% end_dnd_area %}
 
 <style>
   .wp-container-2.wp-container-2 > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
