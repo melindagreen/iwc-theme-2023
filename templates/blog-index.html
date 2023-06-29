@@ -31,8 +31,9 @@
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut erat velit. Nullam mattis felis ut neque malesuada pulvinar. Duis id augue rutrum, facilisis augue sed, cursus ipsum. Nunc in volutpat ipsum. Morbi egestas lacus at augue ullamcorper, sed volutpat nisl ultricies.</p>
     </div>
     
-    {% module "blog_posts" path="/Custom/Idaho Wines/Themes/IWC_2023/modules/blog_listing_iwc.module", no_wrapper=true %}
-    {% module "blog_posts_pagination" path="@hubspot/pagination", no_wrapper=true %}
+    {# {% module "blog_features" path="/Custom/Idaho Wines/Themes/IWC_2023/modules/blog_listing_features_iwc.module", extra_classes="alignwide is-layout-constrained" %} #}
+    {% module "blog_posts" path="/Custom/Idaho Wines/Themes/IWC_2023/modules/blog_listing_iwc.module", extra_classes="alignwide is-layout-constrained" %}
+    {% module "blog_posts_pagination" path="@hubspot/pagination",  extra_classes="alignwide is-layout-constrained" %}
 
   </div>
 </div>

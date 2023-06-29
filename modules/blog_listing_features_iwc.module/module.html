@@ -2,28 +2,11 @@
 {############### Module variables ###################}
 {####################################################}
 
-{# {{ request.path }} #}
-{% set current_page = 1 %}
+
 {% if request.path is string_containing '/page/' %}
-  {% set requestpath = request.path %}
-  {% set current_page = requestpath|cut('/test-blog-obfuscated/page/') %}
+  {% set current_page = request.path|cut('test-blog-obfuscated/page/' %}
 {% else %}
   {% set current_page = 1 %}
-{% endif %}
-{{ current_page }}
-
-{% set posts_per_page = 11 %}
-{% set total_posts = blog_total_post_count() %}
-
-{% set posts_offset = posts_per_page - 2 %}
-{% set max_page = (((total_posts - posts_per_page) / posts_offset) + 1)|round(0,ceil) %}
-
-{% set blog_posts = blog_recent_posts(limit=posts_per_page, offset=(current_page - 1) * posts_offset) %}
-
-{% if current_page == 1 %}
-  {% set blog_posts = blog_recent_posts(limit=posts_per_page) %}
-{% else %}
-  {% set blog_posts = blog_recent_posts(limit=posts_offset, offset=(current_page - 1) * posts_offset + posts_per_page) %}
 {% endif %}
 
 {# Layout type #}
@@ -573,6 +556,8 @@
 {################## Blog layout #####################}
 {####################################################}
 
+{# {% set features = blog_recent_posts(119986636919) %}
+  {{ features }} #}
 
 {% if current_page == 1 %}
   <div id="featureContent" class="is-layout-flow">
@@ -611,45 +596,5 @@
       </section>
     </div>
   </div>
+
 {% endif%}
-
-  <div class="alignwide has-white-color has-iwc-grape-background-color has-text-color has-background has-global-padding is-layout-flow">
-  HELLO
-  </div>
-
-<div id="content" class="is-layout-flow">
-  <div class="wp-block-columns are-vertically-aligned-center is-layout-flex wp-container-8 has-global-padding" style="margin-bottom:var(--wp--preset--spacing--70)">
-    <section class="hs-blog-post-listing hs-blog-post-listing--{{ layout }}">
-      {% for content in contents %}
-      {% if current_page > 1 || (current_page == 1 && loop.index >=3) %}
-        <article
-          class="hs-blog-post-listing__post hs-blog-post-listing__post--{{ layout }} {{ "hs-blog-post-listing__post--{{ columns }}" if has_columns }}"
-          {% if has_full_image and content.featured_image %}
-            style="background-image: url({{ content.featured_image }});"
-          {% endif %}
-          aria-label="{{ module.default_text.full_blog_post_summary_text }}"
-          >
-
-          {% if has_full_image and content.featured_image %}
-            <div class="hs-blog-post-listing__post-inner-wrapper">
-          {% endif %}
-
-            {% if not has_alternate_image or loop.index is not divisibleby 2 %}
-              {{ post_image("left") }}
-            {% elif has_alternate_image and loop.index is divisibleby 2 %}
-              {{ post_image("right") }}
-            {% endif %}
-
-            {{ post_content() }}
-
-          {% if has_full_image and content.featured_image %}
-            </div>
-          {% endif %}
-
-        </article>
-
-      {% endif %}
-      {% endfor %}
-    </section>
-  </div>
-</div>
