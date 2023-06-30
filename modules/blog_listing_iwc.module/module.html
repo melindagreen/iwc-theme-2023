@@ -2,29 +2,32 @@
 {############### Module variables ###################}
 {####################################################}
 
-{# {{ request.path }} #}
-{% set current_page = 1 %}
 {% if request.path is string_containing '/page/' %}
-  {% set requestpath = request.path %}
-  {% set current_page = requestpath|cut('/test-blog-obfuscated/page/') %}
+  {% set current_page = current_page_num %}
 {% else %}
   {% set current_page = 1 %}
 {% endif %}
-{{ current_page }}
 
-{% set posts_per_page = 11 %}
+{# SAVE THIS BLOCK IN CASE REMOVING FROM PAGINATED PAGES #}
+{# {% if current_page == 1 %} #}
+  {# {% set features = blog_recent_posts(119986636919,limit=2) %} #}
+  {% set features = blog_recent_topic_posts('default', 'featured-post', 2) %}
+{# {% endif %} #}
+
+{# {% set posts_per_page = 11 %}
 {% set total_posts = blog_total_post_count() %}
 
 {% set posts_offset = posts_per_page - 2 %}
-{% set max_page = (((total_posts - posts_per_page) / posts_offset) + 1)|round(0,ceil) %}
+{% set max_page = (((total_posts - posts_per_page) / posts_offset) + 2)|round(0,ceil) %} #}
 
-{% set blog_posts = blog_recent_posts(limit=posts_per_page, offset=(current_page - 1) * posts_offset) %}
+{# {% set blog_posts = blog_recent_posts(limit=posts_per_page, offset=(current_page - 1) * posts_offset) %} #}
+{# {% set listoffset = (current_page - 2) * posts_offset + posts_per_page %} #}
 
-{% if current_page == 1 %}
-  {% set blog_posts = blog_recent_posts(limit=posts_per_page) %}
-{% else %}
-  {% set blog_posts = blog_recent_posts(limit=posts_offset, offset=(current_page - 1) * posts_offset + posts_per_page) %}
-{% endif %}
+{# {% if current_page == 1 %} #}
+  {# {% set contents = blog_recent_posts(119986636919,limit=posts_per_page) %} #}
+{# {% else %}
+  {% set contents = blog_recent_posts(119986636919,limit=posts_offset) %}
+{% endif %} #}
 
 {# Layout type #}
 
@@ -578,8 +581,7 @@
   <div id="featureContent" class="is-layout-flow">
     <div class="wp-block-columns are-vertically-aligned-center is-layout-flex wp-container-8 has-global-padding" style="margin-bottom:var(--wp--preset--spacing--70)">
       <section class="hs-blog-post-listing hs-blog-post-listing--{{ layout }}">
-        {% for content in contents %}
-        {% if loop.index <3 %}
+        {% for content in features %}
           <article
             class="hs-blog-post-listing__post hs-blog-post-listing__post--{{ layout }} {{ "hs-blog-post-listing__post--{{ feature_columns }}" if has_feature_columns }}"
             {% if has_full_image and content.featured_image %}
@@ -588,6 +590,68 @@
             aria-label="{{ module.default_text.full_blog_post_summary_text }}"
             >
 
+            <div>
+              {% if has_full_image and content.featured_image %}
+                <div class="hs-blog-post-listing__post-inner-wrapper">
+              {% endif %}
+
+                {% if not has_alternate_image or loop.index is not divisibleby 2 %}
+                  {{ post_image("left") }}
+                {% elif has_alternate_image and loop.index is divisibleby 2 %}
+                  {{ post_image("right") }}
+                {% endif %}
+
+                <div class="content-block">
+                  <div class="content-meta">
+                    <span class="content-date">{{ format_datetime(content.publish_date, "MMM dd, YYYY", "America/New_York", "en") }}</span>
+                    <span class="content-tags">
+                      {% for tag in content.tag_list %}
+                      {% if loop.index == 1 && tag.slug != 'featured-post' %}
+                      &nbsp;|&nbsp;&nbsp;<a class="blog-post__tag-link" href="{{ blog_tag_url(group.id, tag.slug) }}">{{ tag.name }}</a>
+                      {% endif%}
+                      {% endfor %}
+                    </span>
+                  </div>
+                  <span class="content-title">{{ content.name }}</span>
+                  <div class="content-body">{{ content.post_list_content|truncatehtml(200) }}</div>
+                  <div class="content-more"></div>
+                </div>
+
+              {% if has_full_image and content.featured_image %}
+                </div>
+              {% endif %}
+            </div>
+            <div>
+              <a class="content-more" href="" aria-label="Read {{ content.name }}">Read More</a>
+            </div>
+
+          </article>
+        {% endfor %}
+      </section>
+    </div>
+  </div>
+{% endif%}
+
+  <div class="alignwide has-iwc-extra-light-sage-background-color has-text-color has-background has-global-padding is-layout-flow">
+    <p>FILTER WILL GO HERE</p>
+  </div>
+
+<div id="content" class="is-layout-flow">
+  <div class="wp-block-columns are-vertically-aligned-center is-layout-flex wp-container-8 has-global-padding" style="margin-bottom:var(--wp--preset--spacing--70)">
+    <section class="hs-blog-post-listing hs-blog-post-listing--{{ layout }}">
+      {% for content in contents %}
+      {# {% if current_page > 1 || (current_page == 1 && loop.index >=3) %} #}
+      {# {% if loop.index >=3 %} #}
+        
+        <article
+          class="hs-blog-post-listing__post hs-blog-post-listing__post--{{ layout }} {{ "hs-blog-post-listing__post--{{ columns }}" if has_columns }}"
+          {% if has_full_image and content.featured_image %}
+            style="background-image: url({{ content.featured_image }});"
+          {% endif %}
+          aria-label="{{ module.default_text.full_blog_post_summary_text }}"
+          >
+
+          <div>
             {% if has_full_image and content.featured_image %}
               <div class="hs-blog-post-listing__post-inner-wrapper">
             {% endif %}
@@ -598,57 +662,33 @@
                 {{ post_image("right") }}
               {% endif %}
 
-              {{ post_content() }}
+              <div class="content-block">
+                <div class="content-meta">
+                  <span class="content-date">{{ format_datetime(content.publish_date, "MMM dd, YYYY", "America/New_York", "en") }}</span>
+                  <span class="content-tags">
+                    {% for tag in content.tag_list %}
+                    {% if loop.index == 1 && tag.slug != 'featured-post' %}
+                    &nbsp;|&nbsp;&nbsp;<a class="blog-post__tag-link" href="{{ blog_tag_url(group.id, tag.slug) }}">{{ tag.name }}</a>
+                    {% endif%}
+                    {% endfor %}
+                  </span>
+                </div>
+                <span class="content-title">{{ content.name }}</span>
+                <div class="content-body">{{ content.post_list_content|truncatehtml(200) }}</div>
+                <div class="content-more"></div>
+              </div>
 
             {% if has_full_image and content.featured_image %}
               </div>
             {% endif %}
-
-          </article>
-
-        {% endif %}
-        {% endfor %}
-      </section>
-    </div>
-  </div>
-{% endif%}
-
-  <div class="alignwide has-white-color has-iwc-grape-background-color has-text-color has-background has-global-padding is-layout-flow">
-  HELLO
-  </div>
-
-<div id="content" class="is-layout-flow">
-  <div class="wp-block-columns are-vertically-aligned-center is-layout-flex wp-container-8 has-global-padding" style="margin-bottom:var(--wp--preset--spacing--70)">
-    <section class="hs-blog-post-listing hs-blog-post-listing--{{ layout }}">
-      {% for content in contents %}
-      {% if current_page > 1 || (current_page == 1 && loop.index >=3) %}
-        <article
-          class="hs-blog-post-listing__post hs-blog-post-listing__post--{{ layout }} {{ "hs-blog-post-listing__post--{{ columns }}" if has_columns }}"
-          {% if has_full_image and content.featured_image %}
-            style="background-image: url({{ content.featured_image }});"
-          {% endif %}
-          aria-label="{{ module.default_text.full_blog_post_summary_text }}"
-          >
-
-          {% if has_full_image and content.featured_image %}
-            <div class="hs-blog-post-listing__post-inner-wrapper">
-          {% endif %}
-
-            {% if not has_alternate_image or loop.index is not divisibleby 2 %}
-              {{ post_image("left") }}
-            {% elif has_alternate_image and loop.index is divisibleby 2 %}
-              {{ post_image("right") }}
-            {% endif %}
-
-            {{ post_content() }}
-
-          {% if has_full_image and content.featured_image %}
-            </div>
-          {% endif %}
+          </div>
+          <div>
+            <a class="content-more" href="" aria-label="Read {{ content.name }}">Read More</a>
+          </div>
 
         </article>
 
-      {% endif %}
+      {# {% endif %} #}
       {% endfor %}
     </section>
   </div>

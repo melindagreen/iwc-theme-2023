@@ -26,12 +26,12 @@
         </div>
       </div> -->
     </div>
-    <div class="has-global-padding">
+    <div id="blogListingIntro" class="has-global-padding">
+      <span class="eyebrow">Optional Eyebrow</span>
       <h1>The Latest News from Idaho Wine Commission</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut erat velit. Nullam mattis felis ut neque malesuada pulvinar. Duis id augue rutrum, facilisis augue sed, cursus ipsum. Nunc in volutpat ipsum. Morbi egestas lacus at augue ullamcorper, sed volutpat nisl ultricies.</p>
     </div>
     
-    {# {% module "blog_features" path="/Custom/Idaho Wines/Themes/IWC_2023/modules/blog_listing_features_iwc.module", extra_classes="alignwide is-layout-constrained" %} #}
     {% module "blog_posts" path="/Custom/Idaho Wines/Themes/IWC_2023/modules/blog_listing_iwc.module", extra_classes="alignwide is-layout-constrained" %}
     {% module "blog_posts_pagination" path="@hubspot/pagination",  extra_classes="alignwide is-layout-constrained" %}
 
@@ -57,6 +57,24 @@
     padding-bottom: 0;
     padding-left: 0;
   }
+  #blogListingIntro {
+    margin-bottom:4rem;
+  }
+  #blogListingIntro .eyebrow {
+    display:block;
+    font-family:var(--wp--preset--font-family--raleway);
+    font-size:var(--wp--preset--font-size--normal);
+    line-height:1.1;
+    color:var(--wp--preset--color--iwc-text);
+    font-weight:600;
+  }
+  #blogListingIntro h1 {
+    width:50%;
+    margin:1rem 0;
+    font-family:var(--wp--preset--font-family--dity);
+    color:var(--wp--preset--color--iwc-grape);
+  }
+
 </style>
 
 {% endblock body %}
