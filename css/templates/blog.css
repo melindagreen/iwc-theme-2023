@@ -89,11 +89,11 @@
 /******* CUSTOM *******/
 .single-blog-post {
   display:flex;
-  flex-flow:row nowrap;
+  flex-flow:row wrap;
   gap:2rem;
 }
 .single-blog-post article {
-  flex:0 1 auto;
+  flex:0 1 calc(100% - 22rem);
 }
 .single-blog-post article h1 {
   margin-bottom:.5rem;
@@ -130,4 +130,23 @@
 }
 .single-blog-post #blogSidebar .sidebar-recent-posts ul li {
   margin-bottom:1.25rem;
+  }
+article.blog-post .slick-slider, article.blog-post .slick-track, article.blog-post .slick-slide {
+  width:100%!important;
+  max-width:100%!important;
+}
+article.blog-post .slick-slider {
+  padding-left:0;
+  padding-right:0;
+}
+article.blog-post .slick-slider img {
+  border-radius:var(--wp--custom--border-radius--default);
+}
+@media screen and (max-width:768px) {
+  .single-blog-post article, .single-blog-post #blogSidebar {
+    flex-basis:100%;
+  }
+  .single-blog-post #blogSidebar .sidebar-recent-posts {
+    padding:3rem .5rem 2rem;
+  }
 }
