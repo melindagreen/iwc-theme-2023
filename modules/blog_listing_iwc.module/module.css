@@ -25,7 +25,8 @@
 
 /* Featured image */
 
-.hs-blog-post-listing__post-image-wrapper {position:relative;}
+.hs-blog-post-listing__post-image-wrapper {position:relative; } 
+.hs-blog-post-listing__post-image-wrapper:hover {border-color:transparent; }
 .hs-blog-post-listing__post-image-wrapper:after {
   content: "";
   position: absolute;
@@ -66,13 +67,12 @@
 
 /* Article content */
 
-.hs-blog-post-listing__post--grid .content-block, .hs-blog-post-listing__post--grid .content-more {
+.hs-blog-post-listing__post--grid .content-block {
   padding:0 1.375rem;
 }
-#featureContent .hs-blog-post-listing__post--grid .content-block, #featureContent .hs-blog-post-listing__post--grid .content-more {
+#featureContent .hs-blog-post-listing__post--grid .content-block {
   padding:0 .6875rem;
 }
-
 
 .hs-blog-post-listing__post--grid .content-date {
   display:inline;
@@ -100,7 +100,6 @@
   font-weight:600;
 }
 #featureContent .hs-blog-post-listing__post--grid .content-title {
-  margin-top:.25rem;
   font-family:var(--wp--preset--font-family--raleway);
   font-size:var(--wp--preset--font-size--normal);
   line-height:1.25;
@@ -123,11 +122,54 @@
 }
 
 .hs-blog-post-listing__post--grid .content-more {
-  display:block;
   padding-bottom:1.375rem;
   font-family:var(--wp--preset--font-family--dity);
   font-size:var(--wp--preset--font-size--body-copy);
+}
+
+.hs-blog-post-listing__post--grid .content-more a {
   color:var(--wp--preset--color--iwc-grape);
   font-weight:600;
   text-decoration:none;
+}
+
+
+.filter-posts {
+  padding-top:1.75rem;
+  padding-bottom:1.75rem;
+}
+.filter-posts h2 {
+  margin-bottom:1rem;
+  font-family:var(--wp--preset--font-family--dity);
+  font-size:var(--wp--preset--font-size--h-large);
+  color:var(--wp--preset--color--iwc-grape);
+}
+.filter-posts ul {
+  display:flex;
+  flex-flow:row wrap;
+  justify-content:flex-start;
+  gap:.5rem 2rem;
+  padding:0;
+  margin:0;
+  list-style:none;
+}
+.filter-posts ul li {
+  flex:0 1 auto;
+  line-height:
+  color:var(--wp--preset--color--iwc-text);
+  font-weight:600;
+}
+.filter-posts ul li a {
+  padding-bottom:.25rem;
+}
+
+.page-post-count {
+  padding-bottom:1rem;
+}
+.page-post-count span {
+  display:block;
+  font-size:var(--wp--preset--font-size--small);
+  text-transform:uppercase;
+  font-weight:600;
+  margin-bottom:1rem;
 }

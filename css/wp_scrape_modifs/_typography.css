@@ -13,6 +13,29 @@ body {
   margin: 0;
 }
 
+a:where(:not(.wp-element-button)) {
+    border-color: transparent;
+    border-width: 0 0 2px 0;
+    border-style: solid;
+    color: var(--wp--preset--color--iwc-grape);
+    font-weight: 700;
+    text-decoration: none;
+    transition: border-bottom 0.1s;
+}
+
+a:where(:not(.wp-element-button)):hover {
+    border-color: var(--wp--preset--color--iwc-bright-purple);
+}
+
+a:where(:not(.wp-element-button)):focus {
+    text-decoration: underline;
+}
+
+a:where(:not(.wp-element-button)):active {
+    text-decoration: none;
+}
+
+
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--wp--preset--font-family--dity);
     font-size: var(--wp--preset--font-size--h-large);

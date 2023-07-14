@@ -2,10 +2,19 @@
 {############### Module variables ###################}
 {####################################################}
 
+{% set posts_per_page = 9%}
+
 {% if request.path is string_containing '/page/' %}
   {% set current_page = current_page_num %}
 {% else %}
   {% set current_page = 1 %}
+{% endif %}
+
+{% set first_post_index = ((current_page - 1) * posts_per_page) + 1  %}
+{% if (contents|length < (current_page * posts_per_page)) %}
+  {% set last_post_index = ((current_page - 1) * posts_per_page) + contents|length %}
+{% else %}
+  {% set last_post_index = (current_page * posts_per_page) %}
 {% endif %}
 
 {# SAVE THIS BLOCK IN CASE REMOVING FROM PAGINATED PAGES #}
@@ -14,20 +23,7 @@
   {% set features = blog_recent_topic_posts('default', 'featured-post', 2) %}
 {# {% endif %} #}
 
-{# {% set posts_per_page = 11 %}
-{% set total_posts = blog_total_post_count() %}
-
-{% set posts_offset = posts_per_page - 2 %}
-{% set max_page = (((total_posts - posts_per_page) / posts_offset) + 2)|round(0,ceil) %} #}
-
-{# {% set blog_posts = blog_recent_posts(limit=posts_per_page, offset=(current_page - 1) * posts_offset) %} #}
-{# {% set listoffset = (current_page - 2) * posts_offset + posts_per_page %} #}
-
-{# {% if current_page == 1 %} #}
-  {# {% set contents = blog_recent_posts(119986636919,limit=posts_per_page) %} #}
-{# {% else %}
-  {% set contents = blog_recent_posts(119986636919,limit=posts_offset) %}
-{% endif %} #}
+{% set tags = blog_tags(119986636919) %}
 
 {# Layout type #}
 
@@ -614,15 +610,14 @@
                   </div>
                   <span class="content-title">{{ content.name }}</span>
                   <div class="content-body">{{ content.post_list_content|truncatehtml(200) }}</div>
-                  <div class="content-more"></div>
+                  <div class="content-more">
+                    <a href="{{ content.absolute_url }}" aria-label="Read {{ content.name }}">Read More</a>
+                  </div>
                 </div>
 
               {% if has_full_image and content.featured_image %}
                 </div>
               {% endif %}
-            </div>
-            <div>
-              <a class="content-more" href="" aria-label="Read {{ content.name }}">Read More</a>
             </div>
 
           </article>
@@ -632,17 +627,31 @@
   </div>
 {% endif%}
 
-  <div class="alignwide has-iwc-extra-light-sage-background-color has-text-color has-background has-global-padding is-layout-flow">
-    <p>FILTER WILL GO HERE</p>
+{########## if tag list is not empty ############}
+<div class="alignwide has-iwc-extra-light-sage-background-color has-text-color has-background is-layout-constrained">
+  <div class="filter-posts wp-block-group is-layout-flow has-global-padding">
+    <h2>More Posts from the Idaho Wine Commission</h2>
+    <nav role="secondary">
+      <ul>
+        <li>Categories:</li>
+        {% for tag in tags %}
+        {% if tag.slug != 'featured-post' %}
+          <li><a href="{{ blog_tag_url(119986636919, tag.slug) }}">{{ tag.name }}</a></li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </nav>
   </div>
+</div>
 
-<div id="content" class="is-layout-flow">
+<div id="content" class="is-layout-flow"  style="margin-top:var(--wp--preset--spacing--70);">
+  <div class="page-post-count has-global-padding">
+    <span>Displaying {{ first_post_index }} - {{ last_post_index }} of {{ contents.total_count }} Articles</span>
+    <hr class="has-transparent-border-color has-iwc-light-gray-background-color" />
+  </div>
   <div class="wp-block-columns are-vertically-aligned-center is-layout-flex wp-container-8 has-global-padding" style="margin-bottom:var(--wp--preset--spacing--70)">
     <section class="hs-blog-post-listing hs-blog-post-listing--{{ layout }}">
       {% for content in contents %}
-      {# {% if current_page > 1 || (current_page == 1 && loop.index >=3) %} #}
-      {# {% if loop.index >=3 %} #}
-        
         <article
           class="hs-blog-post-listing__post hs-blog-post-listing__post--{{ layout }} {{ "hs-blog-post-listing__post--{{ columns }}" if has_columns }}"
           {% if has_full_image and content.featured_image %}
@@ -675,20 +684,17 @@
                 </div>
                 <span class="content-title">{{ content.name }}</span>
                 <div class="content-body">{{ content.post_list_content|truncatehtml(200) }}</div>
-                <div class="content-more"></div>
+                <div class="content-more">
+                  <a href="{{ content.absolute_url }}" aria-label="Read {{ content.name }}">Read More</a>
+                </div>
               </div>
 
             {% if has_full_image and content.featured_image %}
               </div>
             {% endif %}
           </div>
-          <div>
-            <a class="content-more" href="" aria-label="Read {{ content.name }}">Read More</a>
-          </div>
 
         </article>
-
-      {# {% endif %} #}
       {% endfor %}
     </section>
   </div>

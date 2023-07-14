@@ -3,8 +3,8 @@
   "master_language" : "en",
   "categories" : [ "blog" ],
   "icon" : "../../../../../../mV0_d-web-default-modules_hubspot/img/icon/edited-blog-1.svg",
-  "host_template_types" : [ "BLOG_LISTING" ],
-  "module_id" : 120149806007,
-  "label" : "Blog Listing - IWC",
+  "host_template_types" : [ "BLOG_POST" ],
+  "module_id" : 124588941129,
+  "label" : "Blog Recemt Posts List - IWC",
   "is_available_for_new_content" : true
 }

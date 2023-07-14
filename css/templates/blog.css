@@ -7,6 +7,7 @@
 
 .blog-post__meta {
   margin-bottom: 1.4rem;
+  font-size:0.9375rem;
 }
 
 .blog-post__meta a {
@@ -21,10 +22,6 @@
   height: auto;
   margin-right: 0.35rem;
   width: 15px;
-}
-
-.blog-post__tag-link {
-  font-size: 0.875rem;
 }
 
 /* Blog related posts */
@@ -87,4 +84,50 @@
 .blog-comments .comment-reply-to:focus {
   background-color: transparent;
   text-decoration: underline;
+}
+
+/******* CUSTOM *******/
+.single-blog-post {
+  display:flex;
+  flex-flow:row nowrap;
+  gap:2rem;
+}
+.single-blog-post article {
+  flex:0 1 auto;
+}
+.single-blog-post article h1 {
+  margin-bottom:.5rem;
+}
+.single-blog-post article h2, .single-blog-post article h3 {
+  font-size:1.25rem!important;   /* sometimes defined inline; must override that */
+  text-transform:uppercase;
+  margin:1rem 0 .875rem;
+}
+.single-blog-post article p+h2, .single-blog-post article p+h3 {
+  margin-top:2rem;
+}
+.single-blog-post article h2+p, .single-blog-post article h3+p {
+  margin-top:.875rem;
+}
+.single-blog-post #blogSidebar {
+  flex:0 0 20rem;
+  margin-top:2rem;
+}
+.single-blog-post #blogSidebar .sidebar-subscribe {
+  background-color:var(--wp--preset--color--iwc-grape-green);
+  border-radius:var(--wp--custom--border-radius--default);
+  padding:2rem;
+}
+.single-blog-post #blogSidebar h2 {
+  font-size:var(--wp--preset--font-size--h-small);
+}
+.single-blog-post #blogSidebar .sidebar-recent-posts {
+  padding:2rem;
+}
+.single-blog-post #blogSidebar .sidebar-recent-posts ul {
+  list-style:none;
+  padding-left:0;
+}
+.single-blog-post #blogSidebar .sidebar-recent-posts ul li {
+  margin-bottom:1.25rem;
 }
