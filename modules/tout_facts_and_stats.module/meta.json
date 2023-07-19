@@ -1,0 +1,7 @@
+{
+  "label": "Tout - Facts and Stats",
+  "global" : true,
+  "host_template_types" : [ "PAGE" ],
+  "module_id" : 125122145426,
+  "is_available_for_new_content" : true
+}

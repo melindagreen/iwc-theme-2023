@@ -1,0 +1,116 @@
+.dnd-section .dnd-column .dnd-column {
+    padding:0;
+}
+
+
+.grower-resources .tout {
+    display:flex;
+    align-items:flex-start;
+    gap:2rem;
+    margin:2rem 0;
+}
+
+.grower-resources .tout div.thumbnail-img  {
+    flex:0 0 120px;
+}
+
+.grower-resources .tout div.thumbnail-img img  {
+    width:120px;
+}
+
+
+.grower-resources h2 {
+    margin-top:0;
+    margin-bottom:1rem;
+}
+.grower-resources p {
+    margin-top:0;
+}
+.grower-resources p+h2 {
+    margin-top:3rem;
+}
+.grower-resources .tout h3 {
+    margin:.125rem 0 .5rem;
+    font-family:var(--wp--preset--font-family--raleway);
+    font-size:1rem;
+    font-weight:600;
+    text-transform:uppercase;
+}
+
+
+
+/* form */
+.grower-resources .download-access-form-module {
+    margin-bottom:-5rem;
+    padding-top:5rem;
+    padding-bottom:7rem;
+    background-color:var(--wp--preset--color--iwc-light-sage-40);
+}
+.grower-resources .download-access-form-module .centered-form {
+    margin:3rem auto 0;
+    max-width:600px;
+}
+.grower-resources .download-access-form-module .centered-form .disclaimer {
+    margin-bottom:1.25rem;
+    font-size:var(--wp--preset--font-size--small);
+    text-transform:uppercase;
+}
+.grower-resources .download-access-form-module .centered-form h3 {
+    margin:0;
+}
+.grower-resources .download-access-form-module .centered-form label:not(.hs-form-booleancheckbox-display) {
+    font-size:var(--wp--preset--font-size--normal);
+    font-weight:600;
+}
+.grower-resources .download-access-form-module .centered-form label .hs-form-required {
+    display:none;
+}
+.grower-resources .download-access-form-module .centered-form fieldset.form-columns-1 input {
+    margin-right:0;
+}
+.grower-resources .download-access-form-module .centered-form fieldset.form-columns-1 .hs-input:not([type=checkbox]) {
+    width:100%;
+}
+.grower-resources .download-access-form-module .centered-form fieldset.form-columns-1 .hs-input[type=checkbox] {
+    margin-right:1rem;
+}
+.grower-resources .download-access-form-module .centered-form fieldset.form-columns-2 .hs-form-field {
+    float:none;
+    width:100%;
+}
+
+
+
+/* CTA restyling to match wp-block-buttons */
+.cta_button, input[type=submit] {
+    background-color: var(--wp--preset--color--iwc-savor-blue);
+    border-radius: 20px;
+    border-width: 0;
+    color: var(--wp--preset--color--iwc-button-gray);
+    font-family: inherit;
+    font-size: calc( var(--wp--preset--font-size--normal) - 1px);
+    font-weight: 700;
+    line-height: 1;
+    padding-top: 13px;
+    padding-right: 30px;
+    padding-bottom: 11px;
+    padding-left: 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.cta_button:visited, input[type=submit]:visited {
+    background-color: var(--wp--preset--color--iwc-savor-blue);
+}
+
+.cta_button:hover, input[type=submit]:hover {
+    background-color: var(--wp--preset--color--iwc-bright-purple);
+}
+
+.cta_button:focus, input[type=submit]:focus {
+    background-color: var(--wp--preset--color--iwc-bright-purple);
+}
+
+.cta_button:active, input[type=submit]:active {
+    background-color: var(--wp--preset--color--iwc-bright-purple);
+}

@@ -1,0 +1,12 @@
+[ 
+    {
+        "id" : "intro_copy",
+        "name" : "intro_copy",
+        "display_width" : null,
+        "label" : "Intro Content",
+        "required" : false,
+        "locked" : false,
+        "type" : "richtext",
+        "default" : "<p>The Idaho Wine Commission has collected a library of free resources for wine growers and winemakers who are interested in learning how to establish or expand a vineyard in Idaho. Completing the form below will unlock valuable content, calculators, maps and connections to the Idaho wine making industry.</p><p>Included in our exclusive resources: an exploration of Idaho's wine-growing geology, an analysis of the landscape and climate of the Snake River Valley, an irrigation study for the Boise Foothills, a Grower's Calculator, and more!</p>"
+      }
+]

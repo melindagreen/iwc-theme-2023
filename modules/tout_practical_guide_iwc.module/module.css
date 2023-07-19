@@ -1,0 +1,7 @@
+.grower-resources .tout.tout-growers-guide {
+  margin-left: -4rem;
+  margin-right: -4rem;
+  padding:2rem 4rem;
+  background-color:var(--wp--preset--color--iwc-light-sage-40);
+  border-radius:var(--wp--custom--border-radius--default);
+}

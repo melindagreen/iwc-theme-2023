@@ -1,0 +1,37 @@
+[
+    {
+        "label": "Hero Background Image",
+        "name": "hero_image",
+        "type": "image",
+        "responsive": false,
+        "resizable": false,
+        "show_loading": true,
+        "default": {
+          "loading": "lazy"
+        }
+    },
+    {
+        "id" : "hero_eyebrow",
+        "name" : "hero_eyebrow",
+        "display_width" : null,
+        "label" : "Hero Eyebrow Text",
+        "required" : false,
+        "locked" : false,
+        "validation_regex" : "",
+        "allow_new_line" : false,
+        "type" : "text",
+        "default" : "Idaho Wine Commission"
+    }, 
+    {
+        "id" : "hero_heading",
+        "name" : "hero_heading",
+        "display_width" : null,
+        "label" : "Hero Heading Text",
+        "required" : false,
+        "locked" : false,
+        "validation_regex" : "",
+        "allow_new_line" : false,
+        "type" : "text",
+        "default" : "Idaho Wine Grower Resources"
+    }
+]

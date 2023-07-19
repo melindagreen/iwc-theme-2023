@@ -24,7 +24,7 @@
 
     {{ standard_header_includes }}
   </head>
-  <body>
+  <body id="iwc2023">
     <noscript style="display:block;text-align:center;color:red;">The page requires JavaScript to be enabled.</noscript>
     <div class="body-wrapper {{ builtin_body_classes }}">
       {% block header %}
@@ -42,6 +42,7 @@
         {% global_partial path="../partials/footer.html" %}
       {% endblock footer %}
     </div>
+    
     {{ require_css('https://idahowines.fahlgrendigital.com/content/themes/iwc/style.css') }}
     {{ require_js(get_asset_url("../../js/main.js")) }}
     {# To see a full list of what is included via standard_footer_includes please reference this article: https://developers.hubspot.com/docs/cms/hubl/variables#required-page-template-variables #}

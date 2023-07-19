@@ -1,7 +1,7 @@
 <!--
   templateType: blog_post
   isAvailableForNewContent: true
-  label: Boilerplate - blog post
+  label: Blog post
   screenshotPath: ../images/template-previews/blog-post.png
 -->
 {% set template_css = "../../css/templates/blog.css" %}
@@ -17,7 +17,7 @@
       <article class="blog-post">
         <h1>{{ content.name }}</h1>
         <div class="blog-post__meta">
-          Posted by {{ content.blog_post_author.display_name }}</a> on <strong>{{ content.publish_date|datetimeformat('%B %e %Y') }}</strong>
+          Posted by {{ content.blog_post_author.display_name }} on <strong>{{ content.publish_date|datetimeformat('%B %e %Y') }}</strong>
         </div>
         <div class="blog-post__body">
           {{ content.post_body }}

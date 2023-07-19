@@ -1,0 +1,62 @@
+[ {
+  "id" : "039e6312-d826-6cbf-3b52-30dcb98c9f4d",
+  "name" : "image_field",
+  "display_width" : null,
+  "label" : "Image",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "default" : {
+    "size_type" : "auto",
+    "src" : "https://f.hubspotusercontent30.net/hubfs/5261939/Website%20Assets/Images/Practical-Guide_Idaho-Wine.png",
+    "alt" : "A Practical Guide to Starting a Vineyard in Idaho",
+    "loading" : "lazy",
+    "width" : 143,
+    "height" : 183,
+    "max_width" : 143,
+    "max_height" : 183
+  }
+}, {
+  "id" : "5e28bfa4-cf4d-3636-d0b9-ee890aa84667",
+  "name" : "heading",
+  "display_width" : null,
+  "label" : "Content heading",
+  "required" : false,
+  "locked" : true,
+  "validation_regex" : "",
+  "placeholder" : "Enter the heading here",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text",
+  "default" : "Practical Guide to Starting A Vineyard in Idaho"
+}, {
+  "id" : "73222a9f-5c76-bc11-181c-b0147b92062f",
+  "name" : "richtext_left_col",
+  "display_width" : null,
+  "label" : "Left column content",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "default" : "<ul>\n<li aria-level=\"1\">A Brief Introduction to the Idaho Wine Industry</li>\n<li aria-level=\"1\">How to Start a Vineyard</li>\n<li aria-level=\"1\">Beginning the Journey</li>\n<li aria-level=\"1\">Converting from Existing Crops</li>\n<li aria-level=\"1\">Finding a Site</li>\n</ul>"
+}, {
+  "id" : "ccb8bf3b-6dbe-18d1-3221-1cd39b218d91",
+  "name" : "richtext_right_col",
+  "display_width" : null,
+  "label" : "Right column content",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "default" : "<ul>\n<li aria-level=\"1\">Planning Your Site</li>\n<li aria-level=\"1\">Defining a Brand and Business Plan</li>\n<li aria-level=\"1\">Becoming a Successful Grower</li>\n<li aria-level=\"1\">Acquiring Grapevines, Trellises and Irrigation, Soil Testing, Resources</li>\n</ul>"
+}, {
+  "id" : "0e4b90d6-106e-be65-42a4-90ca3a795c5c",
+  "name" : "cta_field",
+  "display_width" : null,
+  "label" : "CTA",
+  "required" : false,
+  "locked" : false,
+  "type" : "cta",
+  "default" : "8882ce15-57af-466e-94fd-1d2c78e53dff"
+} ]

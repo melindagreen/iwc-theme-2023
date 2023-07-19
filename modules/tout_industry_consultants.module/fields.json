@@ -1,0 +1,53 @@
+[ {
+  "id" : "039e6312-d826-6cbf-3b52-30dcb98c9f4d",
+  "name" : "image_field",
+  "display_width" : null,
+  "label" : "Image",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "default" : {
+    "size_type" : "auto",
+    "src" : "https://f.hubspotusercontent30.net/hubfs/5261939/Website%20Assets/Images/gruet_tractor_with_grapes.jpg",
+    "alt" : "Arrived-Wine-Statistics",
+    "loading" : "lazy",
+    "width" : 129,
+    "height" : 165,
+    "max_width" : 129,
+    "max_height" : 165
+  }
+}, {
+  "id" : "5e28bfa4-cf4d-3636-d0b9-ee890aa84667",
+  "name" : "heading",
+  "display_width" : null,
+  "label" : "Content heading",
+  "required" : false,
+  "locked" : true,
+  "validation_regex" : "",
+  "placeholder" : "Enter the heading here",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text",
+  "default" : "Grower, Winemaker and Industry Consultants"
+}, {
+  "id" : "73222a9f-5c76-bc11-181c-b0147b92062f",
+  "name" : "richtext_content",
+  "display_width" : null,
+  "label" : "Content",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "default" : "<p>In Idaho, vineyards and winemakers work together as a team and believe that individual success benefits us all—that’s why we partner with industry consultants throughout the year.</p>"
+}, {
+  "id" : "0e4b90d6-106e-be65-42a4-90ca3a795c5c",
+  "name" : "cta_field",
+  "display_width" : null,
+  "label" : "CTA",
+  "required" : false,
+  "locked" : false,
+  "type" : "cta",
+  "default" : "42ff5b69-6e23-4749-a838-d58c22f4ce5d"
+} ]

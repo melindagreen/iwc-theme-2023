@@ -1,11 +1,11 @@
 <!--
   templateType: blog_listing
   isAvailableForNewContent: true
-  label: Boilerplate - blog listing
+  label: Blog listing
   screenshotPath: ../images/template-previews/blog-index.png
 -->
-{% set template_css = "../../css/templates/blog.css" %}
 {% extends "./layouts/base.html" %}
+{% set template_css = "../../css/templates/blog.css" %}
 
 {% block body %}
   <div id="content" class="page-content is-layout-constrained">
@@ -36,7 +36,6 @@
     {% module "blog_posts_pagination" path="@hubspot/pagination",  extra_classes="alignwide is-layout-constrained" %}
 
   </div>
-</div>
 
 
 <style>

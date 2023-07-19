@@ -1,0 +1,24 @@
+body:has(.grower-resources .is-hero-section) .navbar-primary {
+    background:white;
+    transition:none;
+}
+.grower-resources .wp-block-cover.is-hero-section{
+    display:flex;
+    justify-content:left;
+    align-items:center;
+    padding-top:120px;
+}
+.grower-resources .wp-block-cover.is-hero-section:after {
+    display:none;
+}
+
+.grower-resources .wp-block-cover .wp-block-cover__image-background {
+    object-position:50% 50%;
+}
+
+.grower-resources .wp-block-cover.is-hero-section h1, .grower-resources .wp-block-cover.is-hero-section p {
+    width:50%;
+}
+.grower-resources .wp-block-cover.is-hero-section h1 {
+    margin:0;
+}
