@@ -22,17 +22,6 @@
     <div class="wp-block-cover alignwide has-custom-content-position is-position-bottom-center is-hero-section" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--70);min-height:500px;">
       <span aria-hidden="true" class="wp-block-cover__background has-background-dim-100 has-background-dim wp-block-cover__gradient-background has-background-gradient has-homepage-hero-gradient-gradient-background"></span>
       <img decoding="async" width="1920" height="1100" class="wp-block-cover__image-background" alt="" src="https://blog.idahowines.org/hubfs/IWC_2023_Theme_Assets/Hero/hdr-idaho-wine-blog@2x.webp" style="object-position:51% 0%" data-object-fit="cover" data-object-position="51% 0%" srcset="https://blog.idahowines.org/hubfs/IWC_2023_Theme_Assets/Hero/hdr-idaho-wine-blog@2x.webp 1920w, https://blog.idahowines.org/hubfs/IWC_2023_Theme_Assets/Hero/hdr-idaho-wine-blog@2x.webp 1440w" sizes="(max-width: 1920px) 100vw, 1920px"> 
-      <!-- <div class="wp-block-cover__inner-container">
-        <div class="wp-block-group has-global-padding is-layout-constrained wp-container-2" style="margin-bottom:var(--wp--preset--spacing--70)">
-          <h1 class="wp-block-heading alignwide has-text-align-center has-white-color has-text-color has-h-home-hero-font-size">Here We Grow</h1>
-          <p class="has-text-align-center has-white-color has-text-color has-medium-large-font-size" style="margin-top:0">Some people are surprised that world-class wine comes from Idaho. Here’s why they shouldn’t be.</p>
-          <div class="wp-block-buttons is-content-justification-center is-layout-flex wp-container-1">
-            <div class="wp-block-button">
-              <a class="wp-block-button__link has-text-align-center wp-element-button">LEARN MORE</a>
-            </div>
-          </div>
-        </div>
-      </div> -->
     </div>
     <div id="blogListingIntro" class="has-global-padding">
       {% module "heading_eyebrow" path="@hubspot/text", label="Heading eyebrow", value="" %}
@@ -48,13 +37,13 @@
     {% if (not topic) && current_page == 1 %}
       {% module "blog_featured_posts" path="/Custom/Idaho Wines/Themes/IWC_2023/modules/blog_featured_posts_iwc.module", extra_classes="alignwide is-layout-constrained" %}
     {% endif %}
-    {# {% if tags | length >= 1 && current_page == 1 %} #}
-      {# {% module "blog_topics" path="/Custom/Idaho Wines/Themes/IWC_2023/modules/blog_topic_menubar_iwc.module", extra_classes="alignwide is-layout-constrained" %} #}
-    {# {% endif %} #}
+    {% if tags | length >= 1 && ((not topic) && current_page == 1) %}
+      {% module "blog_topics" path="/Custom/Idaho Wines/Themes/IWC_2023/modules/blog_topic_menubar_iwc.module", extra_classes="alignwide is-layout-constrained" %}
+    {% endif %}
     {% module "blog_listing" path="/Custom/Idaho Wines/Themes/IWC_2023/modules/blog_listing_iwc.module", extra_classes="alignwide is-layout-constrained" %}
-    {# {% if tags | length >= 1 && (topic || current_page != 1) %} #}
-      {# {% module "blog_topics" path="/Custom/Idaho Wines/Themes/IWC_2023/modules/blog_topic_menubar_iwc.module", extra_classes="alignwide is-layout-constrained" %} #}
-    {# {% endif %} #}
+    {% if tags | length >= 1 && ((topic) || current_page != 1) %}
+      {% module "blog_topics" path="/Custom/Idaho Wines/Themes/IWC_2023/modules/blog_topic_menubar_iwc.module", extra_classes="alignwide is-layout-constrained" %}
+    {% endif %}
     {% module "blog_posts_pagination" path="@hubspot/pagination",  extra_classes="alignwide is-layout-constrained" %}
 
   </div>
