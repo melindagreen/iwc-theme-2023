@@ -1,0 +1,84 @@
+[ {
+  "id" : "0bb87d3c-0bb5-b243-0767-4ac3be56ef14",
+  "name" : "resource",
+  "display_width" : null,
+  "label" : "Resource",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : null,
+    "sorting_label_field" : null,
+    "default" : null
+  },
+  "children" : [ {
+    "id" : "7c3ef0c7-779f-5b8c-5223-64240626aafd",
+    "name" : "resource_title",
+    "display_width" : null,
+    "label" : "Text",
+    "required" : true,
+    "locked" : false,
+    "validation_regex" : "",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "default" : "Resource Title"
+  }, {
+    "id" : "1ae8d243-b782-d602-7816-602238a1354c",
+    "name" : "resource_image",
+    "display_width" : null,
+    "label" : "Image",
+    "required" : true,
+    "locked" : false,
+    "responsive" : true,
+    "resizable" : false,
+    "show_loading" : false,
+    "type" : "image",
+    "default" : {
+      "size_type" : "auto",
+      "src" : "https://f.hubspotusercontent30.net/hubfs/5261939/Screen%20Shot%202020-07-07%20at%209.48.03%20AM.png",
+      "alt" : "Resource",
+      "loading" : "lazy",
+      "width" : 430,
+      "height" : 414,
+      "max_width" : 430,
+      "max_height" : 414
+    }
+  }, {
+    "id" : "778b3c09-c764-226c-2bcb-9633ad92000a",
+    "name" : "resource_description",
+    "display_width" : null,
+    "label" : "Rich text",
+    "required" : true,
+    "locked" : false,
+    "type" : "richtext",
+    "default" : "<p>Describe the resource here.</p>"
+  }, {
+    "id" : "d01a53c2-4d2b-bc6b-294d-7f82effdb06f",
+    "name" : "resource_cta",
+    "display_width" : null,
+    "label" : "CTA",
+    "required" : true,
+    "locked" : false,
+    "type" : "cta",
+    "default" : "0315b858-5c40-42b6-9a11-3b2ab295c953"
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "type" : "group",
+  "default" : [ {
+    "resource_title" : "Resource Title",
+    "resource_image" : {
+      "size_type" : "auto",
+      "src" : "https://f.hubspotusercontent30.net/hubfs/5261939/Screen%20Shot%202020-07-07%20at%209.48.03%20AM.png",
+      "alt" : "Resource",
+      "loading" : "lazy",
+      "width" : 430,
+      "height" : 414,
+      "max_width" : 430,
+      "max_height" : 414
+    },
+    "resource_description" : "<p>Describe the resource here.</p>",
+    "resource_cta" : "0315b858-5c40-42b6-9a11-3b2ab295c953"
+  } ]
+} ]

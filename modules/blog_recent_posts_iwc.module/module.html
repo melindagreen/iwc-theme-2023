@@ -2,18 +2,19 @@
 {############### Module variables ###################}
 {####################################################}
 {% set number_to_display = 4 %}
-{% set recentposts = blog_recent_posts(119986636919, number_to_display) %}
-
-
-{####################################################}
-{################## Blog layout #####################}
-{####################################################}
-
-<div id="content" class="is-layout-flow">
-  <h2>Recent Posts</h2>
-  <ul>
-  {% for content in recentposts %}
-    <a href="{{ content.absolute_url }}"><li class="content-title">{{ content.name }}</li></a>
-  {% endfor %}
-  </ul>
-</div>
+  {% set recentposts = blog_recent_posts(119986636919, number_to_display) %}
+  
+  
+  {####################################################}
+  {################## Blog layout #####################}
+  {####################################################}
+  
+  <div id="content" class="is-layout-flow">
+    <h2>Recent Posts</h2>
+    <ul>
+    {% for content in recentposts %}
+      <a href="{{ content.absolute_url }}"><li class="content-title">{{ content.name }}</li></a>
+    {% endfor %}
+    </ul>
+  </div>
+  

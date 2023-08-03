@@ -1,7 +1,41 @@
 .grower-resources .tout.tout-growers-guide {
-  margin-left: -4rem;
-  margin-right: -4rem;
-  padding:2rem 4rem;
+  margin-left: -6rem;
+  margin-right: -6rem;
+  padding:2rem 6rem;
   background-color:var(--wp--preset--color--iwc-light-sage-40);
   border-radius:var(--wp--custom--border-radius--default);
+}
+
+.grower-resources .tout.tout-growers-guide .two-column {
+  display:flex;
+  gap:2rem;
+  align-items:flex-start;
+}
+.grower-resources .tout.tout-growers-guide .two-column .column {
+  flex:1 1 calc(100% - 1rem);
+}
+
+@media screen and (max-width:767px) {
+  .grower-resources .tout.tout-growers-guide {
+    margin-left:-1rem;
+    margin-right:-1rem;
+    padding-left:2rem;
+    padding-right:2rem;
+  }
+  .grower-resources .tout.tout-growers-guide .two-column {
+    flex-direction:column;
+    gap:0;
+    margin:1rem 0 2rem;
+  }
+  .grower-resources .tout.tout-growers-guide .two-column .column {
+    display:block;
+  }
+  .grower-resources .tout.tout-growers-guide .two-column .column ul {
+    margin:0;
+  }
+}
+@media screen and (min-width:768px) {
+  .grower-resources .tout.tout-growers-guide .cta-container {
+    text-align:right;
+  }
 }

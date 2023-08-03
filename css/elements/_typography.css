@@ -1,2 +1,20 @@
 
 /* base set by WP styles */
+
+/* hubspot-only styles */
+main .is-content ul {
+    list-style:none;
+}
+main .is-content ul li {
+    display:flex;
+}
+main .is-content ul:not(.inputs-list) li:before{
+    content: "\00B7";
+    display: block;
+    flex:0 0 .25rem;
+    vertical-align:top;
+    font-size:2rem;
+    line-height:1rem;
+    margin-right:.5rem;
+    padding-top:.2rem;
+}

@@ -35,28 +35,6 @@
   "type" : "number",
   "default" : 3
 }, {
-  "id" : "feature_columns",
-  "name" : "feature_columns",
-  "display_width" : null,
-  "label" : "Featured Items",
-  "help_text" : "Number of featured posts in a single row",
-  "required" : true,
-  "locked" : false,
-  "visibility" : {
-    "controlling_field" : "layout",
-    "controlling_field_path" : null,
-    "controlling_value_regex" : "basic_grid",
-    "property" : null,
-    "operator" : "EQUAL",
-    "access" : null
-  },
-  "display" : "text",
-  "min" : 0,
-  "max" : 4,
-  "step" : 1,
-  "type" : "number",
-  "default" : 2
-}, {
   "id" : "alternate_image",
   "name" : "alternate_image",
   "display_width" : null,

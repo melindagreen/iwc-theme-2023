@@ -1,4 +1,4 @@
-<div class="tout tout-growers-guide">
+<div class="tout mobile-centered-content tout-growers-guide">
   
   <div class="growers-guide-image thumbnail-img">
     {% if module.image_field.src %}
@@ -23,19 +23,11 @@
       </div>
       <div class="column">
         {% inline_rich_text field="richtext_right_col" value="{{ module.richtext_right_col }}" %}
-        <div class="cta-container">
-          {% cta guid="{{ module.cta_field }}" %}
-        </div>
       </div>
     </div>
+	<div class="cta-container">
+		{% cta guid="{{ module.cta_field }}" %}
+	</div>
   </div>
   
 </div>
-
-
-
-
-
-
-
-

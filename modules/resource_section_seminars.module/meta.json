@@ -1,0 +1,7 @@
+{
+  "label": "Seminar Listing",
+  "global" : true,
+  "host_template_types" : [ "PAGE" ],
+  "module_id" : 125763531650,
+  "is_available_for_new_content" : true
+}

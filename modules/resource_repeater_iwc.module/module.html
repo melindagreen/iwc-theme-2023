@@ -1,0 +1,21 @@
+<div class="resource-repeater">
+  {% for item in module.resource %}
+  <div class="resource">
+    {% if item.resource_image.src %}
+      <div class="image">
+         {% set loadingAttr = item.resource_image.loading != 'disabled' ? 'loading="{{ item.resource_image.loading }}"' : '' %}
+         <img src="{{ item.resource_image.src }}" alt="{{ item.resource_image.alt }}" {{ loadingAttr }}>
+      </div>
+    {% endif %}
+    <div class="content">
+      <h3>
+        {% inline_text field="resource_title" value="{{ item.resource_title }}" %}
+      </h3>
+      {% inline_rich_text field="resource_description" value="{{ item.resource_description }}" %}
+      <div class="cta button-style">
+        {% cta guid="{{ item.resource_cta }}" %}
+      </div>
+    </div>
+  </div>
+ {% endfor %}
+</div>

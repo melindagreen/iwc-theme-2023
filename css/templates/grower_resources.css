@@ -1,27 +1,13 @@
-.dnd-section .dnd-column .dnd-column {
+.dnd-section .dnd-column .dnd-column, .dnd-section .dnd-column.span12 {
     padding:0;
 }
 
-
-.grower-resources .tout {
-    display:flex;
-    align-items:flex-start;
-    gap:2rem;
-    margin:2rem 0;
-}
-
-.grower-resources .tout div.thumbnail-img  {
-    flex:0 0 120px;
-}
-
-.grower-resources .tout div.thumbnail-img img  {
-    width:120px;
-}
-
-
-.grower-resources h2 {
+.grower-resources h2, .grower-resources h3 {
     margin-top:0;
     margin-bottom:1rem;
+}
+.grower-resources h3 {
+    font-size:var(--wp--preset--font-size--h-small);
 }
 .grower-resources p {
     margin-top:0;
@@ -29,7 +15,66 @@
 .grower-resources p+h2 {
     margin-top:3rem;
 }
-.grower-resources .tout h3 {
+
+
+.main-breadcrumb {
+    display:block;
+    margin-bottom:2rem;
+}
+.main-breadcrumb ul {
+    padding-left:0;
+}
+.main-breadcrumb ul ul {
+    display:inline-block;
+}
+.main-breadcrumb ul li {
+    display:inline-block;
+    font-size:var(--wp--preset--font-size--tiny);
+}
+.main-breadcrumb ul li:not(.active-branch) {
+    display:none;
+}
+.main-breadcrumb ul li:before {
+    content:"\002F";
+    display:inline;
+    padding:0 .25rem 0 0.2rem;
+    font-family:var(--wp--preset--font-family--raleway);
+    font-size:var(--wp--preset--font-size--tiny);
+}
+.main-breadcrumb ul li a {
+    font-weight:400;
+}
+.main-breadcrumb ul li.active a {
+    font-weight:700;
+}
+.main-breadcrumb ul li.active a:hover {
+    border-color:transparent;
+    cursor:default;
+}
+.main-breadcrumb .hs-menu-wrapper > ul:first-child > li:first-child:before {
+    content:"";
+    padding:0;
+}
+.body-container--blog-post .main-breadcrumb {
+    margin-bottom:2rem;
+}
+
+.grower-resources .narrow-content {
+    max-width:920px;
+}
+
+.grower-resources .tout {
+    display:flex;
+    align-items:flex-start;
+    gap:2rem;
+    margin:2rem 0;
+}
+@media screen and (max-width:767px) {
+    .grower-resources .tout {
+        flex-direction:column;
+    }
+}
+.grower-resources .tout h3, .seminar-listing h3{
     margin:.125rem 0 .5rem;
     font-family:var(--wp--preset--font-family--raleway);
     font-size:1rem;
@@ -37,44 +82,69 @@
     text-transform:uppercase;
 }
 
+.grower-resources .tout div.thumbnail-img  {
+    flex:0 0 120px;
+}
+@media screen and (max-width:767px) {
+    .grower-resources .tout div.thumbnail-img, .grower-resources .tout .cta-container  {
+        width:100%;
+        margin-top:2rem;
+        text-align:center;
+    }
+}
+.grower-resources .tout div.thumbnail-img img  {
+    width:120px;
+}
+
+@media screen and (max-width:767px) {
+    .grower-resources .tout.mobile-centered-content h3, .grower-resources .tout.mobile-centered-content p {
+        text-align:center;
+    }
+    .grower-resources .tout.mobile-centered-content .hs_cos_wrapper_type_inline_rich_text ul {
+        text-align:left;
+    }
+}
 
 
-/* form */
+
+/* forms */
 .grower-resources .download-access-form-module {
+    margin-top:5rem;
     margin-bottom:-5rem;
     padding-top:5rem;
     padding-bottom:7rem;
     background-color:var(--wp--preset--color--iwc-light-sage-40);
 }
-.grower-resources .download-access-form-module .centered-form {
+.grower-resources .centered-form {
     margin:3rem auto 0;
     max-width:600px;
 }
-.grower-resources .download-access-form-module .centered-form .disclaimer {
+.grower-resources .centered-form .form-disclaimer {
     margin-bottom:1.25rem;
     font-size:var(--wp--preset--font-size--small);
     text-transform:uppercase;
 }
-.grower-resources .download-access-form-module .centered-form h3 {
+.grower-resources .centered-form h3 {
     margin:0;
 }
-.grower-resources .download-access-form-module .centered-form label:not(.hs-form-booleancheckbox-display) {
+.grower-resources form label:not(.hs-form-booleancheckbox-display):not(.hs-form-checkbox-display) {
     font-size:var(--wp--preset--font-size--normal);
     font-weight:600;
 }
-.grower-resources .download-access-form-module .centered-form label .hs-form-required {
+.grower-resources form label .hs-form-required {
     display:none;
 }
-.grower-resources .download-access-form-module .centered-form fieldset.form-columns-1 input {
+.grower-resources form fieldset.form-columns-1 input {
     margin-right:0;
 }
-.grower-resources .download-access-form-module .centered-form fieldset.form-columns-1 .hs-input:not([type=checkbox]) {
+
+.grower-resources form.hs-form fieldset[class*="form-columns"] .hs-input:not([type=checkbox]) {
     width:100%;
 }
-.grower-resources .download-access-form-module .centered-form fieldset.form-columns-1 .hs-input[type=checkbox] {
+.grower-resources form .hs-input[type=checkbox] {
     margin-right:1rem;
 }
-.grower-resources .download-access-form-module .centered-form fieldset.form-columns-2 .hs-form-field {
+.grower-resources form fieldset.form-columns-2 .hs-form-field {
     float:none;
     width:100%;
 }

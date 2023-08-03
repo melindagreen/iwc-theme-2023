@@ -1,0 +1,40 @@
+[ {
+  "id" : "seminars",
+  "name" : "seminars",
+  "display_width" : null,
+  "label" : "Seminars",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : null,
+    "sorting_label_field" : null,
+    "default" : null
+  },
+  "children" : [ {
+    "id" : "heading",
+    "name" : "heading",
+    "display_width" : null,
+    "label" : "Content heading",
+    "required" : false,
+    "locked" : true,
+    "validation_regex" : "",
+    "placeholder" : "Enter the heading here",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "default" : "Idaho Wine Commission Seminar Featuring Joel Perez"
+  }, {
+    "id" : "content",
+    "name" : "richtext_content",
+    "display_width" : null,
+    "label" : "Content",
+    "required" : false,
+    "locked" : false,
+    "type" : "richtext",
+    "default" : "<p>Watch a virtual round table discussion with Joel Perez hosted by the Idaho Wine Commission. Joel discuss three topics pertinent to Idaho growing regions - grape phylloxera identification and management, crown gall mitigation and soil pH management. To access all of the available seminars, complete the form below.</p>"
+  }],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "type" : "group"
+} ]

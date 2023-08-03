@@ -5,10 +5,29 @@
   screenshotPath: ../images/template-previews/blog-post.png
 -->
 {% set template_css = "../../css/templates/blog.css" %}
+{{ require_css(get_asset_url("/Custom/Idaho Wines/Themes/IWC_2023/css/templates/grower_resources.css")) }}
 {% extends "./layouts/base.html" %}
 
 {% block body %}
-<div class="body-container body-container--blog-post">
+<div class="body-container body-container--blog-post grower-resources">
+    
+  <div class="is-layout-constrained">
+    <div class="main-breadcrumb has-global-padding">
+      <div class="hs-menu-wrapper">
+        <ul class="active-branch">
+          <li class="active-branch"><a href="https://www.idahowines.org">Home</a>
+            <ul class="active-branch">
+              <li class="active-branch"><a href="https://blog.idahowines.org">Blog</a>
+                <ul class="active-branch">
+                  <li class="active-branch active"><a href="">{{ content.name }}</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
   {# Blog post #}
 

@@ -15,9 +15,9 @@
 
   <div class="facts-guide-content">
     <h3>
-      {% inline_text field="heading" value="{{ module.heading }}" %}
+      {{ module.heading }}
     </h3>
-    {% inline_rich_text field="richtext_content" value="{{ module.richtext_content }}" %}
+    {{ module.richtext_content }}
     <div class="cta-container">
       {% cta guid="{{ module.cta_field }}" %}
     </div>

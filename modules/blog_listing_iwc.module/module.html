@@ -3,6 +3,7 @@
 {####################################################}
 
 {% set posts_per_page = 9%}
+{% set topicName = page_meta.html_title|replace('The Corkscrew | ', '') %} 
 
 {% if request.path is string_containing '/page/' %}
   {% set current_page = current_page_num %}
@@ -17,11 +18,6 @@
   {% set last_post_index = (current_page * posts_per_page) %}
 {% endif %}
 
-{# SAVE THIS BLOCK IN CASE REMOVING FROM PAGINATED PAGES #}
-{# {% if current_page == 1 %} #}
-  {# {% set features = blog_recent_posts(119986636919,limit=2) %} #}
-  {% set features = blog_recent_topic_posts('default', 'featured-post', 2) %}
-{# {% endif %} #}
 
 {% set tags = blog_tags(119986636919) %}
 
@@ -572,8 +568,8 @@
 {################## Blog layout #####################}
 {####################################################}
 
-
-{% if current_page == 1 %}
+{# {% if current_page == 1 %}
+{% unless topic %}
   <div id="featureContent" class="is-layout-flow">
     <div class="wp-block-columns are-vertically-aligned-center is-layout-flex wp-container-8 has-global-padding" style="margin-bottom:var(--wp--preset--spacing--70)">
       <section class="hs-blog-post-listing hs-blog-post-listing--{{ layout }}">
@@ -625,7 +621,8 @@
       </section>
     </div>
   </div>
-{% endif%}
+{% endunless %}
+{% endif %} #}
 
 {########## if tag list is not empty ############}
 <div class="alignwide has-iwc-extra-light-sage-background-color has-text-color has-background is-layout-constrained">
@@ -645,6 +642,9 @@
 </div>
 
 <div id="content" class="is-layout-flow"  style="margin-top:var(--wp--preset--spacing--70);">
+  {% if topic %}
+    <h2>Posts about {{ topicName }}</h2>
+  {% endif %}
   <div class="page-post-count has-global-padding">
     <span>Displaying {{ first_post_index }} - {{ last_post_index }} of {{ contents.total_count }} Articles</span>
     <hr class="has-transparent-border-color has-iwc-light-gray-background-color" />
@@ -674,6 +674,7 @@
               <div class="content-block">
                 <div class="content-meta">
                   <span class="content-date">{{ format_datetime(content.publish_date, "MMM dd, YYYY", "America/New_York", "en") }}</span>
+                  {% unless topic %}
                   <span class="content-tags">
                     {% for tag in content.tag_list %}
                     {% if loop.index == 1 && tag.slug != 'featured-post' %}
@@ -681,6 +682,7 @@
                     {% endif%}
                     {% endfor %}
                   </span>
+                  {% endunless %}
                 </div>
                 <span class="content-title">{{ content.name }}</span>
                 <div class="content-body">{{ content.post_list_content|truncatehtml(200) }}</div>

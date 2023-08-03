@@ -1,0 +1,58 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Resources - form page
+  screenshotPath: ../images/template-previews/blog-index.png
+-->
+{% set template_css = "../../css/templates/grower_resources.css" %}
+{% extends "./layouts/base.html" %}
+
+
+{% block body %}
+    
+  <div id="content" class="grower-resources page-content is-layout-constrained">
+
+    {% module "module_168960044482229" path="/Custom/Idaho Wines/Themes/IWC_2023/modules/resource_section_hero_iwc", label="resource_section_hero_iwc" extra_classes="alignfull" %}
+    
+    <div class="is-layout-constrained">
+      {% menu "breadcrumb" id=125483215626, site_map_name='Default', overrideable=False, root_type='site_root', flyouts='false', max_levels='5', flow='horizontal', label='Grower Resources Breadcrumb Menu', extra_classes="main-breadcrumb has-global-padding" %}
+    </div>
+
+    <div class="is-layout-constrained">
+      <div class="has-global-padding is-content narrow-content">
+        {% dnd_area "lp_modules" %}
+        {% end_dnd_area %}
+      </div>
+    </div>
+
+
+    <div class="is-layout-constrained">
+      <div class="has-global-padding is-content narrow-content">
+        {% dnd_area "lp_form" %}
+        {% end_dnd_area %}
+      </div>
+    </div>
+  </div>
+
+
+<style>
+  .wp-container-2.wp-container-2 > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+    max-width: 600px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .wp-container-2.wp-container-2 > .alignwide {
+    max-width: 800px;
+  }
+  .wp-container-2.wp-container-2.wp-container-2.wp-container-2 > * + * {
+    margin-block-start:20px;margin-block-end:0;
+  }
+  .wp-block-cover {
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+  }
+</style>
+
+{% endblock body %}

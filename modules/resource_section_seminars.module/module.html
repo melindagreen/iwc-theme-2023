@@ -1,0 +1,18 @@
+<div class="seminar-listing">
+{% for item in module.seminars %}
+  <div class="seminar-listing-content">
+    <h3>
+      {{ item.heading }}
+    </h3>
+    {{ item.richtext_content }}
+  </div>
+{% endfor %}
+</div>
+
+
+
+
+
+
+
+

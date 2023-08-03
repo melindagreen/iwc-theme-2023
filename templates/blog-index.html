@@ -6,6 +6,14 @@
 -->
 {% extends "./layouts/base.html" %}
 {% set template_css = "../../css/templates/blog.css" %}
+{% set tags = blog_tags(119986636919) %}
+
+{% if request.path is string_containing '/page/' %}
+  {% set current_page = current_page_num %}
+{% else %}
+  {% set current_page = 1 %}
+{% endif %}
+
 
 {% block body %}
   <div id="content" class="page-content is-layout-constrained">
@@ -27,12 +35,26 @@
       </div> -->
     </div>
     <div id="blogListingIntro" class="has-global-padding">
-      <span class="eyebrow">Optional Eyebrow</span>
-      <h1>The Latest News from Idaho Wine Commission</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut erat velit. Nullam mattis felis ut neque malesuada pulvinar. Duis id augue rutrum, facilisis augue sed, cursus ipsum. Nunc in volutpat ipsum. Morbi egestas lacus at augue ullamcorper, sed volutpat nisl ultricies.</p>
+      {% module "heading_eyebrow" path="@hubspot/text", label="Heading eyebrow", value="" %}
+      {% if heading_eyebrow != '' %}
+        <span class="eyebrow">{{ heading_eyebrow }}</span>
+      {% endif %}
+      {% module "blog_title" path="@hubspot/header", label="Page title", header_tag="h1" value="Root Page Title" %}
+      {% module "intro_copy" path="@hubspot/rich_text", label="Intro copy", html="<p>Opening up the latest Idaho wine topics, events, and news</p>" %}
     </div>
     
-    {% module "blog_posts" path="/Custom/Idaho Wines/Themes/IWC_2023/modules/blog_listing_iwc.module", extra_classes="alignwide is-layout-constrained" %}
+    
+
+    {% if (not topic) && current_page == 1 %}
+      {% module "blog_featured_posts" path="/Custom/Idaho Wines/Themes/IWC_2023/modules/blog_featured_posts_iwc.module", extra_classes="alignwide is-layout-constrained" %}
+    {% endif %}
+    {# {% if tags | length >= 1 && current_page == 1 %} #}
+      {# {% module "blog_topics" path="/Custom/Idaho Wines/Themes/IWC_2023/modules/blog_topic_menubar_iwc.module", extra_classes="alignwide is-layout-constrained" %} #}
+    {# {% endif %} #}
+    {% module "blog_listing" path="/Custom/Idaho Wines/Themes/IWC_2023/modules/blog_listing_iwc.module", extra_classes="alignwide is-layout-constrained" %}
+    {# {% if tags | length >= 1 && (topic || current_page != 1) %} #}
+      {# {% module "blog_topics" path="/Custom/Idaho Wines/Themes/IWC_2023/modules/blog_topic_menubar_iwc.module", extra_classes="alignwide is-layout-constrained" %} #}
+    {# {% endif %} #}
     {% module "blog_posts_pagination" path="@hubspot/pagination",  extra_classes="alignwide is-layout-constrained" %}
 
   </div>
