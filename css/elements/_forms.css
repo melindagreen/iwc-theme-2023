@@ -2,14 +2,18 @@
 
 .hs-form-field {
   margin-bottom: 1.4rem;
+  display:flex;
+  flex-flow:row wrap;
 }
 
 /* Labels */
 
 form label {
-  display: block;
-  font-size: 0.875rem;
+  display: inline-block;
+  flex:0 0 auto;
+  max-width:100%;
   margin-bottom: 0.35rem;
+  font-size: 1rem;
 }
 
 /* Form Title */
@@ -20,10 +24,19 @@ form label {
 /* Help text */
 
 form legend {
-  font-size: 0.875rem;
+  flex:0 0 auto;
+  width:auto!important;
+  margin-left:.5rem;
+  font-size: 0.75rem;
+  line-height:1.5rem;
+  font-style:italic;
 }
 
 /* Inputs */
+
+div.input {
+  flex:0 0 100%;
+}
 
 form input[type=text],
 form input[type=search],
@@ -35,7 +48,7 @@ form input[type=file],
 form select,
 form textarea {
   display: inline-block;
-  font-size: 0.875rem;
+  font-size: 1rem;
   padding: 0.7rem;
   width: 100%;
 }
@@ -47,6 +60,39 @@ form textarea {
 form fieldset {
   max-width: 100% !important;
 }
+
+form fieldset.form-columns-1 .input {
+  margin-right:0!important;
+}
+
+/* @media screen and (min-width:401px) { */
+  form fieldset.form-columns-2 .hs-form-field:first-child .input {
+    width:98%;
+    padding-right:2%;
+  }
+  form fieldset .hs-form-field:nth-child(2) .input {
+    width:98%;
+    padding-left:2%;
+  }
+  form fieldset .hs-form-field:nth-child(2) label {
+    margin-left:2%;
+  }
+/* } */
+
+@media screen and (max-width: 400px), (min-device-width: 320px) and (max-device-width: 480px) {
+  form fieldset.form-columns-2 .hs-form-field:first-child .input {
+    width:100%;
+    padding-right:0%;
+  }
+  form fieldset .hs-form-field:nth-child(2) .input {
+    width:100%;
+    padding-left:0%;
+  }
+  form fieldset .hs-form-field:nth-child(2) label {
+    margin-left:0%;
+  }
+}
+
 
 /* Inputs - checkbox/radio */
 

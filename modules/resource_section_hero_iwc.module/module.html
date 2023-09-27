@@ -1,7 +1,6 @@
 {# Hero banner #}
-<div class="wp-block-cover alignwide has-custom-content-position is-position-bottom-left is-hero-section" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--50);min-height:463px;">
-  <span aria-hidden="true" class="wp-block-cover__background has-background-dim-100 has-background-dim wp-block-cover__gradient-background has-background-gradient has-homepage-hero-gradient-gradient-background"></span>
-  <img decoding="async" width="1920" height="1100" class="wp-block-cover__image-background" alt="" src="{{ module.hero_image.src }}" style="object-position:51% 50%" data-object-fit="cover" data-object-position="51% 50%" srcset="{{ module.hero_image.src }} 1920w, {{ module.hero_image.src }} 1440w" sizes="(max-width: 1920px) 100vw, 1920px"> 
+<div class="wp-block-cover alignwide has-custom-content-position is-position-bottom-left is-hero-section">
+  <img decoding="async" width="1920" height="1100" class="wp-block-cover__image-background" alt="{{ module.hero_image.alt }}" src="{{ module.hero_image.src }}" style="object-position:51% 50%" data-object-fit="cover" data-object-position="51% 50%" srcset="{{ module.hero_image.src }} 1920w, {{ module.hero_image.src }} 1440w" sizes="(max-width: 1920px) 100vw, 1920px"> 
   <div class="wp-block-cover__inner-container is-layout-constrained" style="width:100%;">
     <div class="wp-block-group has-global-padding">
       <p class="has-text-align-left has-white-color has-text-color has-small-font-size" style="margin-top:0">{{ module.hero_eyebrow }}</p>

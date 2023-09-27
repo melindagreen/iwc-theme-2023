@@ -310,3 +310,7 @@ body .is-layout-flex > * {
 .has-homepage-hero-gradient-gradient-background {
     background: var(--wp--preset--gradient--homepage-hero-gradient) !important;
 }
+.body-wrapper .skip-link {
+    top:0;
+    height:auto;
+}

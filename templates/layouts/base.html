@@ -5,32 +5,65 @@
 <html lang="{{ html_lang }}" {{ html_lang_dir }}>
   <head>
     <meta charset="utf-8">
-    <meta name="robots" content="noindex,nofollow" /> <!-- NOTDONEYET -->
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-K5HB442');</script>
+    <!-- End Google Tag Manager -->
+
     {% if page_meta.html_title or pageTitle %}<title>{{ page_meta.html_title or pageTitle }}</title>{% endif %}
     {% if brand_settings.primaryFavicon.src %}<link rel="shortcut icon" href="{{ brand_settings.primaryFavicon.src }}" />{% endif %}
     <meta name="description" content="{{ page_meta.meta_description }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+
+    {% if blog %}
+    <meta property="og:url" content="https://blog.idahowines.org/" />
+    {% else %}
+    <meta property="og:url" content="https://resources.idahowines.org/" />
+    {% endif %}
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" /> 
+    <meta property="og:image" content="{{ theme.og_image.src }}" />
+    <meta name="twitter:card" content="summary_large_image" />        
+    <meta name="twitter:site" content="@idahowines" />
+    <meta name="twitter:creator" content="@idahowines" />
+
     {{ require_css(get_asset_url("../../css/main.css")) }}
     {# This is intended to be used if a template requires template specific style sheets #}
     {% if template_css %}
       {{ require_css(get_asset_url(template_css)) }}
     {% endif %}
-    {{ require_css('https://idahowines.fahlgrendigital.com/wp/wp-includes/css/dist/block-library/style.min.css') }}
-    {{ require_js('https://idahowines.fahlgrendigital.com/wp/wp-includes/js/jquery/jquery.min.js') }}
-    {{ require_js('https://idahowines.fahlgrendigital.com/wp/wp-includes/js/jquery/jquery-migrate.min.js') }}
-    {{ require_js('https://idahowines.fahlgrendigital.com/content/themes/iwc/app.js') }}
+    {{ require_css('https://www.idahowines.org/wp/wp-includes/css/dist/block-library/style.min.css') }}
+    {{ require_js('https://www.idahowines.org/wp/wp-includes/js/jquery/jquery.min.js') }}
+    {{ require_js('https://www.idahowines.org/wp/wp-includes/js/jquery/jquery-migrate.min.js') }}
+    {{ require_js('https://www.idahowines.org/content/themes/iwc/app.js') }}
+
+
+    {# <link rel="stylesheet" href="https://www.idahowines.org/wp/wp-includes/css/dist/block-library/style.min.css" />
+    <script src="https://www.idahowines.org/wp/wp-includes/js/jquery/jquery.min.js"></script>
+    <script src="https://www.idahowines.org/wp/wp-includes/js/jquery/jquery-migrate.min.js"></script>
+    <script src="https://www.idahowines.org/content/themes/iwc/app.js"></script> #}
 
 
     {{ standard_header_includes }}
   </head>
   <body id="iwc2023">
-    <noscript style="display:block;text-align:center;color:red;">The page requires JavaScript to be enabled.</noscript>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src=https://www.googletagmanager.com/ns.html?id=GTM-K5HB442
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <noscript class="no-js-msg">The page requires JavaScript to be enabled.</noscript>
+
     <div class="body-wrapper {{ builtin_body_classes }}">
+      <a class="skip-link" href="#content">Skip to content</a>
       {% block header %}
         {% global_partial path="../partials/header.html" %}
       {% endblock header %}
-
+      
       {# The main-content ID is used for the navigation skipper in the header.html file. More information on the navigation skipper can be found here: https://github.com/HubSpot/cms-theme-boilerplate/wiki/Accessibility #}
 
       <main id="main-content" class="body-container-wrapper">
@@ -44,8 +77,9 @@
     </div>
     
   
-    {{ require_css('https://idahowines.fahlgrendigital.com/content/themes/iwc/style.css') }}
-    {% include "/Custom/Idaho Wines/Themes/IWC_2023/templates/partials/scripts-bottom.html" %}
+    {# {{ require_css('https://www.idahowines.org/content/themes/iwc/style.css') }} #}
+    <link rel="stylesheet" href="https://www.idahowines.org/content/themes/iwc/style.css" />
+
     {{ require_js(get_asset_url("../../js/main.js")) }}
     {# To see a full list of what is included via standard_footer_includes please reference this article: https://developers.hubspot.com/docs/cms/hubl/variables#required-page-template-variables #}
     {{ standard_footer_includes }}

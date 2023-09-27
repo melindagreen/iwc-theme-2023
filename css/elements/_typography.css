@@ -18,3 +18,8 @@ main .is-content ul:not(.inputs-list) li:before{
     margin-right:.5rem;
     padding-top:.2rem;
 }
+.submitted-message {
+    font-family:var(--wp--preset--font-family--dity);
+    font-size:var(--wp--preset--font-size--h-small);
+    color:var(--wp--preset--color--iwc-grape);
+}

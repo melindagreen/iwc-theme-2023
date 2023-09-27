@@ -7,6 +7,10 @@ body {
   padding: 0 1rem;
 }
 
+#cookie-alert {
+  display:none;
+}
+
 @media screen and (min-width: 1380px) {
   .content-wrapper {
     padding: 0;

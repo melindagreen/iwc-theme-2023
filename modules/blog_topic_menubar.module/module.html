@@ -1,0 +1,15 @@
+<div class="alignwide has-iwc-extra-light-sage-background-color has-text-color has-background is-layout-constrained">
+  <div class="filter-posts wp-block-group is-layout-flow has-global-padding">
+    <h2>More Posts from the Idaho Wine Commission</h2>
+    <nav role="secondary">
+      <ul>
+        <li>Categories:</li>
+        {% for tag in tags %}
+        {% if tag.slug != 'featured-post' %}
+          <li><a href="{{ blog_tag_url(119986636919, tag.slug) }}">{{ tag.name }}</a></li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</div>

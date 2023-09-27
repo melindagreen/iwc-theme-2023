@@ -2,56 +2,146 @@
   templateType: global_partial
   label: Website header
 -->
-{# <header class="header" {% if is_listing_view %} class="init-xpt"{% endif %}> #}
+<nav class="navbar-primary">
+  <div class="navbar-container">
 
-  <a class="skip-link" href="#main-content">Skip to content</a>
-
-  {# Main header #}
-  <nav class="navbar-primary">
-    <div class="navbar-container">
-
-      <a href="#" class="navbar-search-button" id="mobile-search"><img src="https://idahowines.fahlgrendigital.com/content/themes/iwc/images/icon-search.svg" alt="search"></a>
-
-      <div class="navbar-logo-container">
-        <a href="https://idahowines.fahlgrendigital.com"><img src="https://idahowines.fahlgrendigital.com/content/themes/iwc/images/idaho-wine-color-logo@2x.webp" alt="Idaho Wine Commission"></a>
-      </div>
-
-      <div id="mobile-menu">
-        <ul id="menu-action" class="menu-action">
-          <li class=""><a href="https://idahowines.fahlgrendigital.com/media/">Media</a></li>
-          <li class=""><a href="https://idahowines.fahlgrendigital.com/visitors-guide/">Visitors Guide</a></li>
-          <li class=""><a href="https://idahowines.fahlgrendigital.com/contact/">Contact</a></li>
-          <li class=""><a href="https://idahowines.fahlgrendigital.com/subscribe/">Subscribe</a></li>
-          <li>
-            <ul id="menu-social" class="menu-social">
-              <li class="icon-fb"><a title="Facebook" target="_blank" href="https://www.facebook.com/idahowinecommission">FB</a></li>
-              <li class="icon-ig"><a title="Instagram" target="_blank" href="https://www.instagram.com/idahowines/">IG</a></li>
-              <li class="icon-yt"><a title="YouTube" target="_blank" href="https://www.youtube.com/channel/UCt03FzUcXh-qAOByZDREK8A/videos">YT</a></li>
-            </ul>
-          </li>
-        </ul>
-        <ul id="menu-primary-menu" class="menu-primary">
-          <li><a href="https://idahowines.fahlgrendigital.com/idaho-wines/">Idaho Wines</a></li>
-          <li><a href="https://idahowines.fahlgrendigital.com/visit/">Visit</a></li>
-          <li><a href="https://idahowines.fahlgrendigital.com/events/">Events</a></li>
-          <li><a href="https://idahowines.fahlgrendigital.com/industry-resources/">Industry Resources</a></li>
-          <li><a href="#">Blog</a>
-            <ul style="display: none;">
-              <li><a href="#">Wine Enthusiast</a></li>
-            </ul>
-          </li>
-          <li><a href="https://idahowines.fahlgrendigital.com/who-we-are/">Who We Are</a></li>
-        </ul>
-      </div>
-
-      <button id="hamburger" type="button" class="collapsed" aria-controls="mobile-menu" aria-expanded="false">
-          <span class="screen-reader-text">Open main menu</span>
-          <span class="lines"></span>
-      </button>
-
+    <div class="navbar-logo-container">
+      <a href="https://www.idahowines.org"><img
+          src="https://www.idahowines.org/content/themes/iwc/images/idaho-wine-color-logo@2x.webp"
+          alt="Idaho Wine Commission"
+      /></a>
     </div>
 
-    <div class="b-line"></div>
-  </nav>
+    <div id="mobile-menu">
+      <ul id="menu-action" class="menu-action">
+        <li>
+          <a href="https://www.idahowines.org/media/">Media</a>
+        </li>
+        <li>
+          <a
+            target="_blank"
+            href="https://resources.idahowines.org/request-a-brochure">Request Brochure</a>
+        </li>
+        <li>
+          <a href="https://resources.idahowines.org/contact-us">Contact Us</a>
+        </li>
+        <li>
+          <a href="https://resources.idahowines.org/subscribe-idaho-wines">Subscribe</a>
+        </li>
+        <li>
+          <ul id="menu-social" class="menu-social">
+            <li class="icon-fb">
+              <a
+                title="Facebook"
+                target="_blank"
+                href="https://www.facebook.com/idahowinecommission">FB</a>
+            </li>
+            <li class="icon-ig">
+              <a
+                title="Instagram"
+                target="_blank"
+                href="https://www.instagram.com/idahowines/">IG</a>
+            </li>
+            <li class="icon-yt">
+              <a
+                title="YouTube"
+                target="_blank"
+                href="https://www.youtube.com/channel/UCt03FzUcXh-qAOByZDREK8A/videos">YT</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul id="menu-primary-menu" class="menu-primary">
+        <li>
+          <a href="https://www.idahowines.org/idaho-wines/">Idaho Wines</a>
+          <ul>
+            <li>
+              <a
+                href="https://www.idahowines.org/idaho-wines/idaho-wine-faqs/">Idaho Wine FAQs</a>
+            </li>
+            <li>
+              <a
+                href="https://www.idahowines.org/idaho-wines/idaho-wine-history/">Idaho Wine History</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="https://www.idahowines.org/visit/">Visit</a>
+          <ul>
+            <li>
+              <a
+                href="https://www.idahowines.org/visit/boise-garden-city/">Boise &amp; Garden City</a>
+            </li>
+            <li>
+              <a
+                href="https://www.idahowines.org/visit/coeur-dalene-sandpoint/">Coeur d&#8217;Alene &#038; Sandpoint</a>
+            </li>
+            <li>
+              <a href="https://www.idahowines.org/visit/eagle/">Eagle</a>
+            </li>
+            <li>
+              <a
+                href="https://www.idahowines.org/visit/lewiston-moscow/">Lewiston &amp; Moscow</a>
+            </li>
+            <li>
+              <a
+                href="https://www.idahowines.org/visit/south-central/">South Central</a>
+            </li>
+            <li>
+              <a
+                href="https://www.idahowines.org/visit/western-treasure-valley/">Western Treasure Valley</a>
+            </li>
+            <li>
+              <a
+                href="https://www.idahowines.org/visit/wine-flies-free/">Wine Flies Free</a>
+            </li>
+          </ul>
+        </li>
+        <li><a href="/events/">Events</a></li>
+        <li>
+          <a href="https://www.idahowines.org/industry-resources/">Industry Resources</a>
+        </li>
+        <li>
+          <a href="https://blog.idahowines.org/">Blog</a>
+          <ul>
+            <li>
+              <a href="https://www.idahowines.org/in-the-news/">In The News</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="https://www.idahowines.org/who-we-are/">Who We Are</a>
+          <ul>
+            <li>
+              <a href="https://www.idahowines.org/who-we-are/team/">Team</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div id="mobile-search-container">
+        <form
+          role="search"
+          method="get"
+          class="searchform"
+          action="https://www.idahowines.org/">
+          <div>
+            <label class="screen-reader-text" for="s">Search for:</label>
+            <input type="search" placeholder="Search" value="" name="s" />
+            <input type="submit" id="searchsubmit" value="GO" />
+          </div>
+        </form>
+      </div>
+    </div>
 
-{# </header> #}
+    <button
+      id="hamburger"
+      type="button"
+      class="collapsed"
+      aria-controls="mobile-menu"
+      aria-expanded="false">
+      <span class="screen-reader-text">Open main menu</span>
+      <span class="lines"></span>
+    </button>
+  </div>
+  <div class="b-line"></div>
+</nav>

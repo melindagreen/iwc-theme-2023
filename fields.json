@@ -1,1 +1,17 @@
-[]
+[ 
+  {
+    "id" : "og_image",
+    "name" : "og_image",
+    "label" : "OG Image",
+    "locked" : false,
+    "responsive" : false,
+    "resizable" : false,
+    "show_loading" : false,
+    "type" : "image",
+    "default" : {
+      "size_type" : "auto",
+      "src" : "https://f.hubspotusercontent30.net/hubfs/5261939/Screen%20Shot%202020-07-07%20at%209.48.03%20AM.png",
+      "alt" : "Idaho Wine Commission"
+    }
+  }
+]

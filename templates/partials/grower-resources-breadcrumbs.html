@@ -1,0 +1,25 @@
+<!--
+  templateType: global_partial
+  label: Grower Resources Breadcrumbs
+-->
+<div class="is-layout-constrained">
+    <div class="resources-breadcrumb main-breadcrumb has-global-padding">
+        <div class="hs-menu-wrapper">
+            {# up to two levels of path, for any nested pages down the road #}
+            {% set requestPath = request.path %}
+            {% set breadcrumbs = requestPath|split('/', 2) %}
+            {# what's in the URL bar is not the actual request path. see commented render of 'item' below. #}
+            <ul>
+                <li class="active-branch"><a href="">Home</a></li>
+                <li class="active-branch"><a href="">Industry Resources</a></li>
+                <li class="active-branch"><a href="">Grower Resources</a></li>
+                {% for item in breadcrumbs %}
+                <!-- {{ item }} --> 
+                {% if item != 'content-rendering' %}
+                    <li class="active-branch active">{{ content.name }}</li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>

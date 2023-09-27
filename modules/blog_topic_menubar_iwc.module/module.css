@@ -1,0 +1,33 @@
+.filter-posts {
+  margin:3rem 0;
+  padding-top:1.75rem;
+  padding-bottom:1.75rem;
+}
+.filter-posts h2 {
+  margin-bottom:1rem;
+  font-family:var(--wp--preset--font-family--dity);
+  font-size:var(--wp--preset--font-size--h-large);
+  color:var(--wp--preset--color--iwc-grape);
+}
+.filter-posts ul {
+  display:flex;
+  flex-flow:row wrap;
+  justify-content:flex-start;
+  gap:.5rem 2rem;
+  padding:0;
+  margin:0;
+  list-style:none;
+}
+.filter-posts ul li {
+  flex:0 1 auto;
+  line-height:
+  color:var(--wp--preset--color--iwc-text);
+  font-weight:600;
+}
+.filter-posts ul li a {
+  padding-bottom:.25rem;
+}
+
+.menubar-lower .filter-posts {
+  margin-bottom:var(--wp--preset--spacing--70);
+}

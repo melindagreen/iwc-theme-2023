@@ -17,9 +17,8 @@
   border-radius:var(--wp--custom--border-radius--default);
   box-shadow: 0 7px 14px -11px rgba(0, 0, 0, 0.49);
 }
-#featureContent .hs-blog-post-listing__post {
-  border:none;
-  box-shadow:none;
+.hs-blog-post-listing__post h1, .hs-blog-post-listing__post h2, .hs-blog-post-listing__post h3, .hs-blog-post-listing__post h4, .hs-blog-post-listing__post h5, .hs-blog-post-listing__post h6 {
+  display:none;
 }
 
 
@@ -35,7 +34,7 @@
   top: calc(100% - 18px);
   min-height: unset;
   height: 20px;
-  background-image: url(https://idahowines.fahlgrendigital.com/content/themes/iwc/images/header-curve-m.svg);
+  background-image: url(https://www.idahowines.org/content/themes/iwc/images/header-curve-m.svg);
   background-position: top center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -43,22 +42,13 @@
 }
 @media (min-width: 600px)
 .hs-blog-post-listing__post-image-wrapper:after {
-  background-image: url(https://idahowines.fahlgrendigital.com/content/themes/iwc/images/header-curve.svg);
-}
-#featureContent .hs-blog-post-listing__post-image-wrapper:after {
-  display:none;
+  background-image: url(https://www.idahowines.org/content/themes/iwc/images/header-curve.svg);
 }
 
 .hs-blog-post-listing__post--grid .hs-blog-post-listing__post-image-wrapper img {
   aspect-ratio:1.77 / 1;
   border-top-right-radius:var(--wp--custom--border-radius--default);
   border-top-left-radius:var(--wp--custom--border-radius--default);
-}
-#featureContent .hs-blog-post-listing__post--grid .hs-blog-post-listing__post-image-wrapper img {
-  height:auto;
-  aspect-ratio:1.45 / 1;
-  border-bottom-right-radius:var(--wp--custom--border-radius--default);
-  border-bottom-left-radius:var(--wp--custom--border-radius--default);
 }
 
 .hs-blog-post-listing__post-image {
@@ -69,9 +59,6 @@
 
 .hs-blog-post-listing__post--grid .content-block {
   padding:0 1.375rem;
-}
-#featureContent .hs-blog-post-listing__post--grid .content-block {
-  padding:0 .6875rem;
 }
 
 .hs-blog-post-listing__post--grid .content-date {
@@ -99,18 +86,9 @@
   color:var(--wp--preset--color--iwc-grape);
   font-weight:600;
 }
-#featureContent .hs-blog-post-listing__post--grid .content-title {
-  font-family:var(--wp--preset--font-family--raleway);
-  font-size:var(--wp--preset--font-size--normal);
-  line-height:1.25;
-  text-transform:uppercase;
-}
 
 .hs-blog-post-listing__post--grid .content-body {
   font-size:var(--wp--preset--font-size--small);
-}
-#featureContent .hs-blog-post-listing__post--grid .content-body {
-  font-size:var(--wp--preset--font-size--regular);
 }
 
 
@@ -133,35 +111,6 @@
   text-decoration:none;
 }
 
-
-.filter-posts {
-  padding-top:1.75rem;
-  padding-bottom:1.75rem;
-}
-.filter-posts h2 {
-  margin-bottom:1rem;
-  font-family:var(--wp--preset--font-family--dity);
-  font-size:var(--wp--preset--font-size--h-large);
-  color:var(--wp--preset--color--iwc-grape);
-}
-.filter-posts ul {
-  display:flex;
-  flex-flow:row wrap;
-  justify-content:flex-start;
-  gap:.5rem 2rem;
-  padding:0;
-  margin:0;
-  list-style:none;
-}
-.filter-posts ul li {
-  flex:0 1 auto;
-  line-height:
-  color:var(--wp--preset--color--iwc-text);
-  font-weight:600;
-}
-.filter-posts ul li a {
-  padding-bottom:.25rem;
-}
 
 .page-post-count {
   padding-bottom:1rem;

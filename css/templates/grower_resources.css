@@ -17,24 +17,28 @@
 }
 
 
-.main-breadcrumb {
+body .is-layout-constrained>.main-breadcrumb {
     display:block;
     margin-bottom:2rem;
+}
+@media (max-width: 767px) {
+    .resources-breadcrumb .hs-menu-wrapper.hs-menu-flow-horizontal ul {
+        flex-direction: row;
+    }
 }
 .main-breadcrumb ul {
     padding-left:0;
 }
-.main-breadcrumb ul ul {
-    display:inline-block;
-}
+
 .main-breadcrumb ul li {
-    display:inline-block;
+    display:flex;
+    flex:0 0 auto;
     font-size:var(--wp--preset--font-size--tiny);
 }
 .main-breadcrumb ul li:not(.active-branch) {
     display:none;
 }
-.main-breadcrumb ul li:before {
+.main-breadcrumb ul li:after {
     content:"\002F";
     display:inline;
     padding:0 .25rem 0 0.2rem;
@@ -44,14 +48,14 @@
 .main-breadcrumb ul li a {
     font-weight:400;
 }
-.main-breadcrumb ul li.active a {
+.main-breadcrumb ul li.active {
     font-weight:700;
 }
-.main-breadcrumb ul li.active a:hover {
+.main-breadcrumb ul li.active {
     border-color:transparent;
     cursor:default;
 }
-.main-breadcrumb .hs-menu-wrapper > ul:first-child > li:first-child:before {
+.main-breadcrumb .hs-menu-wrapper > ul:first-child > li:last-child:after {
     content:"";
     padding:0;
 }
@@ -131,22 +135,29 @@
     font-size:var(--wp--preset--font-size--normal);
     font-weight:600;
 }
+.grower-resources form label.hs-form-booleancheckbox-display {
+    margin-bottom:0;
+}
 .grower-resources form label .hs-form-required {
     display:none;
 }
 .grower-resources form fieldset.form-columns-1 input {
     margin-right:0;
 }
+.grower-resources form .inputs-list >li.hs-form-booleancheckbox {
+    margin-top:0;
+    margin-bottom:0;
+}
 
-.grower-resources form.hs-form fieldset[class*="form-columns"] .hs-input:not([type=checkbox]) {
+.grower-resources form.hs-form fieldset[class*="form-columns"] .hs-input:not([type=checkbox]):not([type=radio]) {
     width:100%;
 }
-.grower-resources form .hs-input[type=checkbox] {
+.grower-resources form .hs-input[type=checkbox], .grower-resources form .hs-input[type=radio] {
     margin-right:1rem;
+    accent-color:var(--wp--preset--color--iwc-savor-blue);
 }
-.grower-resources form fieldset.form-columns-2 .hs-form-field {
-    float:none;
-    width:100%;
+.grower-resources form .inputs-list>li[role=radio] {
+    margin:0;
 }
 
 

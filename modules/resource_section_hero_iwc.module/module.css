@@ -1,11 +1,14 @@
 body:has(.grower-resources .is-hero-section) .navbar-primary {
-    background:white;
+    background:white!important;
     transition:none;
 }
 .grower-resources .wp-block-cover.is-hero-section{
     display:flex;
     justify-content:left;
     align-items:center;
+    min-height:463px;
+    margin-top:0;
+    margin-bottom:var(--wp--preset--spacing--50);
     padding-top:120px;
 }
 .grower-resources .wp-block-cover.is-hero-section:after {

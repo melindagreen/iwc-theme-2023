@@ -9,9 +9,9 @@
 {% extends "./layouts/base.html" %}
 
 {% block body %}
-<div class="body-container body-container--blog-post grower-resources">
+<div class="body-container body-container--blog-post grower-resources is-single-post">
     
-  <div class="is-layout-constrained">
+  {# <div class="is-layout-constrained">
     <div class="main-breadcrumb has-global-padding">
       <div class="hs-menu-wrapper">
         <ul class="active-branch">
@@ -27,11 +27,24 @@
         </ul>
       </div>
     </div>
-  </div>
+  </div> #}
+
+  <div class="is-layout-constrained">
+    <div class="main-breadcrumb has-global-padding">
+      <div class="hs-menu-wrapper">
+        <ul class="active-branch">
+          <li class="active-branch"><a href="https://www.idahowines.org">Home</a>
+          <li class="active-branch"><a href="https://blog.idahowines.org">Blog</a>
+          <li class="active-branch active">{{ content.name }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>  
+
 
   {# Blog post #}
 
-  <div class="page-content is-layout-constrained">
+  <div id="content" class="page-content is-layout-constrained">
     <div class="single-blog-post has-global-padding">
       <article class="blog-post">
         <h1>{{ content.name }}</h1>
@@ -54,7 +67,7 @@
         <div class="sidebar-subscribe is-layout-flow">
           <h2>Stay Connected</h2>
           <p>Get more information about Idaho wines, upcoming events, special offers and other exclusive content from the Idaho Wine Commission.</p>
-          <div class="wp-block-button"><a class="wp-block-button__link has-text-align-center wp-element-button" href="#https://idahowines.fahlgrendigital.com/idaho-wines/#">Subscribe</a></div>
+          <div class="wp-block-button"><a class="wp-block-button__link has-text-align-center wp-element-button" href="https://resources.idahowines.org/subscribe-idaho-wines">Subscribe</a></div>
         </div>
         <div class="sidebar-recent-posts">
           {% module "blog_recent_posts" path="/Custom/Idaho Wines/Themes/IWC_2023/modules/blog_recent_posts_iwc.module" %}

@@ -568,66 +568,11 @@
 {################## Blog layout #####################}
 {####################################################}
 
-{# {% if current_page == 1 %}
-{% unless topic %}
-  <div id="featureContent" class="is-layout-flow">
-    <div class="wp-block-columns are-vertically-aligned-center is-layout-flex wp-container-8 has-global-padding" style="margin-bottom:var(--wp--preset--spacing--70)">
-      <section class="hs-blog-post-listing hs-blog-post-listing--{{ layout }}">
-        {% for content in features %}
-          <article
-            class="hs-blog-post-listing__post hs-blog-post-listing__post--{{ layout }} {{ "hs-blog-post-listing__post--{{ feature_columns }}" if has_feature_columns }}"
-            {% if has_full_image and content.featured_image %}
-              style="background-image: url({{ content.featured_image }});"
-            {% endif %}
-            aria-label="{{ module.default_text.full_blog_post_summary_text }}"
-            >
-
-            <div>
-              {% if has_full_image and content.featured_image %}
-                <div class="hs-blog-post-listing__post-inner-wrapper">
-              {% endif %}
-
-                {% if not has_alternate_image or loop.index is not divisibleby 2 %}
-                  {{ post_image("left") }}
-                {% elif has_alternate_image and loop.index is divisibleby 2 %}
-                  {{ post_image("right") }}
-                {% endif %}
-
-                <div class="content-block">
-                  <div class="content-meta">
-                    <span class="content-date">{{ format_datetime(content.publish_date, "MMM dd, YYYY", "America/New_York", "en") }}</span>
-                    <span class="content-tags">
-                      {% for tag in content.tag_list %}
-                      {% if loop.index == 1 && tag.slug != 'featured-post' %}
-                      &nbsp;|&nbsp;&nbsp;<a class="blog-post__tag-link" href="{{ blog_tag_url(group.id, tag.slug) }}">{{ tag.name }}</a>
-                      {% endif%}
-                      {% endfor %}
-                    </span>
-                  </div>
-                  <span class="content-title">{{ content.name }}</span>
-                  <div class="content-body">{{ content.post_list_content|truncatehtml(200) }}</div>
-                  <div class="content-more">
-                    <a href="{{ content.absolute_url }}" aria-label="Read {{ content.name }}">Read More</a>
-                  </div>
-                </div>
-
-              {% if has_full_image and content.featured_image %}
-                </div>
-              {% endif %}
-            </div>
-
-          </article>
-        {% endfor %}
-      </section>
-    </div>
-  </div>
-{% endunless %}
-{% endif %} #}
-
-
 <div id="content" class="is-layout-flow"  style="margin-top:var(--wp--preset--spacing--70);">
   {% if topic %}
-    <h2>Posts about {{ topicName }}</h2>
+    <div class="has-global-padding"> 
+      <h2>Posts about {{ topicName }}</h2>
+    </div>
   {% endif %}
   <div class="page-post-count has-global-padding">
     <span>Displaying {{ first_post_index }} - {{ last_post_index }} of {{ contents.total_count }} Articles</span>
