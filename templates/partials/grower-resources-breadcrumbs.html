@@ -10,9 +10,9 @@
             {% set breadcrumbs = requestPath|split('/', 2) %}
             {# what's in the URL bar is not the actual request path. see commented render of 'item' below. #}
             <ul>
-                <li class="active-branch"><a href="">Home</a></li>
-                <li class="active-branch"><a href="">Industry Resources</a></li>
-                <li class="active-branch"><a href="">Grower Resources</a></li>
+                <li class="active-branch"><a href="https://www.idahowines.org">Home</a></li>
+                <li class="active-branch"><a href="https://idahowines.org/industry-resources/">Industry Resources</a></li>
+                <li class="active-branch"><a href="https://resources.idahowines.org/grower-resources">Grower Resources</a></li>
                 {% for item in breadcrumbs %}
                 <!-- {{ item }} --> 
                 {% if item != 'content-rendering' %}
